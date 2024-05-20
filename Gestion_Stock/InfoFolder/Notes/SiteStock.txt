@@ -1,0 +1,39 @@
+le 18/04/24 :
+
+--Services vente
+----Nouvelle Vente
+----Recherhcer un bon de commande
+
+--Clients
+----Ajouter un client
+----Listes des clients
+#----Rechercher un client
+
+--Tableau de bord
+----La liste des commandes
+----Liste des facture pour ce jour
+#----Liste des produits manquant
+
+--Fournisseurs
+----Ajouter Fournisseur
+----Liste des Fournisseurs
+
+--Categories
+----Ajouter categorie
+----Liste des categories
+
+--Produits
+----Ajouter Produit
+#----Rechercher un produit
+----Liste produits
+----Gestion du stock
+#----Meilleurs vente
+#----Listes des produits manque
+
+--Administration
+----Ajouter utilisateur 
+----Liste utilisateurs
+#----Gestion des emplacements
+#----Gestion des commerciaux
+
+--Se deconnecter
