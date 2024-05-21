@@ -6,11 +6,11 @@
 . administrateur        #
 . produit               #
 . stock                 #
-. photos des produits
+. photos des produits   #
 . categories            #
-. factures
-. commandes
-. reglement
-. client
-. vendeur
-. produit_Commande
+. factures              #
+. commandes             #
+. reglement             #
+. client                #
+. vendeur               #
+. produit_Commande      #

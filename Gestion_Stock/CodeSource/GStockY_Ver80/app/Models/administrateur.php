@@ -31,16 +31,46 @@ class administrateur extends Model
     // id_administrateur pour les autres tableaus 
     public function fournisseurs()
     {
-        return $this->hasMany(Fournisseur::class, 'id_administrateur');
+        return $this->hasMany(Fournisseur::class, 'ID_administrateur');
     }
 
     public function categories()
     {
-        return $this->hasMany(Categorie::class, 'id_administrateur');
+        return $this->hasMany(Categorie::class, 'ID_administrateur');
+    }
+
+    public function produits()
+    {
+        return $this->hasMany(Produit::class, 'ID_administrateur');
     }
 
     public function stocks()
     {
-        return $this->hasMany(stock::class, 'id_administrateur');
+        return $this->hasMany(stock::class, 'ID_Administrateur');
+    }
+
+    public function vendeurs()
+    {
+        return $this->hasMany(Vendeur::class, 'ID_administrateur');
+    }
+
+    // public function clients()
+    // {
+    //     return $this->hasMany(Client::class, 'ID_gestionnaire')->where('RoleGestionnaire', 'admin');
+    // }
+
+    public function clients()
+    {
+        return $this->hasMany(Client::class, 'ID_administrateur')->where('RoleGestionnaire', 'admin');
+    }
+
+    public function commandes()
+    {
+        return $this->hasMany(Commande::class, 'ID_administrateur');
+    }
+
+    public function reglements()
+    {
+        return $this->hasMany(Reglement::class, 'ID_administrateur');
     }
 }

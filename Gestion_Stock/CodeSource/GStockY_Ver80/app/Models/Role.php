@@ -37,4 +37,14 @@ class Role extends Model
         return $this->hasMany(Fournisseur::class, 'id_Role');
     }
 
+    public function vendeurs()
+    {
+        return $this->hasMany(Vendeur::class, 'id_Role');
+    }
+
+    public function clients()
+    {
+        return $this->hasMany(Client::class, 'id_Role');
+    }
+
 }

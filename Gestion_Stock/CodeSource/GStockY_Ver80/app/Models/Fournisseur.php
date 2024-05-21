@@ -31,12 +31,12 @@ class Fournisseur extends Model
 
     public function administrateur()
     {
-        return $this->belongsTo(administrateur::class, 'id_administrateur');
+        return $this->belongsTo(administrateur::class, 'ID_administrateur');
     }
 
     // pour donner le id au autre tableau
     public function stocks()
     {
-        return $this->hasMany(stock::class, 'id_Fournisseur');
+        return $this->hasMany(stock::class, 'ID_Fournisseur');
     }
 }

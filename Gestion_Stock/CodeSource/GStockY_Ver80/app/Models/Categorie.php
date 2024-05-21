@@ -12,7 +12,6 @@ class Categorie extends Model
     protected $table = "categories";
     public $incrementing = true; // l'incrémentation automatique de la clé primaire
     public $timestamps = true; // pour gérer les colonnes created_at et updated_at
-
     protected $primaryKey  = "id_categorie";
     protected $fillable =  
         [  

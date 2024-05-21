@@ -26,7 +26,7 @@ class Produit extends Model
 
     public function administrateur()
     {
-        return $this->belongsTo(administrateur::class, 'id_administrateur');
+        return $this->belongsTo(administrateur::class, 'ID_administrateur');
     }
 
     public function categorie()
@@ -37,6 +37,16 @@ class Produit extends Model
     // pour donner le id au autre tableau
     public function stocks()
     {
-        return $this->hasMany(stock::class, 'id_produit');
+        return $this->hasMany(stock::class, 'ID_Produit');
+    }
+
+    public function photos()
+    {
+        return $this->hasMany(Photos_des_Produit::class, 'produit_id');
+    }
+
+    public function produitCommandes()
+    {
+        return $this->hasMany(Produit_Commande::class, 'produit_id');
     }
 }

@@ -17,3 +17,15 @@ Ver 0.4 : _
 - -------------- produits ------------------------
 - -------------- stocks ------------------------
 _
+
+commit3;
+Ver 0.5 : _ creation de base de donnee :
+- -------------- Photos_des_Produits ------------------------
+- -------------- vendeurs ------------------------
+- -------------- Clients ------------------------
+- ajouter attribute description au tableau commande dans DC.
+- -------------- Commandes ------------------------
+- -------------- produit__commandes ------------------------
+- -------------- factures ------------------------
+- -------------- reglements ------------------------
+_
