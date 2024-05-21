@@ -9,6 +9,9 @@ class Role extends Model
 {
     use HasFactory;
     protected $table = "roles";
+    public $incrementing = true; // l'incrémentation automatique de la clé primaire
+    public $timestamps = true; // pour gérer les colonnes created_at et updated_at
+
     protected $primaryKey  = "id_Role";
     protected $fillable =  
         [  
@@ -21,4 +24,17 @@ class Role extends Model
     {
         return $this->hasMany(Utilisateur::class, 'id_Role');
     }
+
+    // Define the relationship with the administrateur model
+    public function administrateurs()
+    {
+        return $this->hasMany(administrateur::class, 'id_Role');
+    }
+
+    // Define the relationship with the fournisseurs model
+    public function fournisseurs()
+    {
+        return $this->hasMany(Fournisseur::class, 'id_Role');
+    }
+
 }
