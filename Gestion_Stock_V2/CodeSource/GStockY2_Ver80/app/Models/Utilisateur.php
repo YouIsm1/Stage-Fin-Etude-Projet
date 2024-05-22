@@ -62,4 +62,15 @@ class Utilisateur extends Model
     {
         return $this->hasMany(Commande::class, 'ID_Utilisateur_R_Client');
     }
+
+    // pour gérer les Reglements entant que Vendeur et administrateur avec Client
+    public function reglement_Utilisateur_R_Vendeur_Admin()
+    {
+        return $this->hasMany(Reglement::class, 'ID_Utilisateur_R_Vendeur_Admin');
+    }
+
+    public function reglement_Utilisateur_R_Client()
+    {
+        return $this->hasMany(Reglement::class, 'ID_Utilisateur_R_Client');
+    }
 }

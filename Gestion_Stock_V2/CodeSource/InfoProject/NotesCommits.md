@@ -30,3 +30,10 @@ _
 - ------------- factures -------------
 - ------------- reglement -------------
 _
+
+
+commit4;
+Ver 2.0.4 : | Creation de base de donnee |
+_
+- modification dans le model d'utilisateur.
+_
