@@ -19,3 +19,14 @@ _
 - ------------- produits -------------
 - ------------- Photo_Produit -------------
 _
+
+
+commit3;
+Ver 2.0.3 : | Creation de base de donnee |
+_
+- ------------- stock -------------
+- ------------- commandes -------------
+- ------------- produit_Commande -------
+- ------------- factures -------------
+- ------------- reglement -------------
+_

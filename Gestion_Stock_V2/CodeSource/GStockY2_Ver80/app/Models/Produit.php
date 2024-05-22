@@ -40,4 +40,14 @@ class Produit extends Model
     {
         return $this->hasMany(Photo_Produit::class, 'produit_id');
     }
+    // pour donner le id au autre tableau
+    public function stocks()
+    {
+        return $this->hasMany(stock::class, 'ID_Produit');
+    }
+
+    public function produitCommandes()
+    {
+        return $this->hasMany(Produit_Commande::class, 'produit_id');
+    }
 }

@@ -39,4 +39,27 @@ class Utilisateur extends Model
     {
         return $this->hasMany(Produit::class, 'ID_Utilisateur_R_administrateur');
     }
+
+
+    // pour gérer le stock entant que fournisseur  et administrateur 
+    public function stocks_Utilisateur_R_Fournisseur()
+    {
+        return $this->hasMany(Stock::class, 'ID_Utilisateur_R_Fournisseur');
+    }
+
+    public function stocks_Utilisateur_R_administrateur()
+    {
+        return $this->hasMany(Stock::class, 'ID_Utilisateur_R_administrateur');
+    }
+
+    // pour gérer les commandes entant que Vendeur et administrateur avec Client
+    public function commandes_Utilisateur_R_Vendeur_Admin()
+    {
+        return $this->hasMany(Commande::class, 'ID_Utilisateur_R_Vendeur_Admin');
+    }
+
+    public function commandes_Utilisateur_R_Client()
+    {
+        return $this->hasMany(Commande::class, 'ID_Utilisateur_R_Client');
+    }
 }
