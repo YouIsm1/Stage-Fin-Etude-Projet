@@ -37,3 +37,10 @@ Ver 2.0.4 : | Creation de base de donnee |
 _
 - modification dans le model d'utilisateur.
 _
+
+commit5;
+Ver 2.0.5 : | Creation de template avec les controleurs |
+_
+- l'installation des packages de npm.
+- creer la vue de authentication avec le style.
+_
