@@ -1,0 +1,51 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\Utilisateur;
+
+class AuthentificationController extends Controller
+{
+    public function AuthenFun(Request $request){
+        $request->validate([
+            'email' => 'required|email',
+            'mot_de_passe' => 'required|min:4',
+        ], [
+            'email.required' => 'Le champ email est requis.',
+            'email.email' => 'L\'email doit être une adresse email valide.',
+            'mot_de_passe.required' => 'Le champ mot de passe est requis.',
+            'mot_de_passe.min' => 'Le mot de passe doit contenir au moins 4 caractères.',
+        ]);
+
+        // $utilisateur = Utilisateur::where('email', $request->email)
+        //                 ->where('mot_de_passe', $request->mot_de_passe)
+        //                 ->first();
+
+        // if ($utilisateur) {
+        //     return redirect('/')->with('success', 'Authentification réussie!');
+        // } else {
+        //     return back()->withErrors(['email' => 'Les informations d\'identification ne sont pas correctes.']);
+        // }
+
+        $utilisateur = Utilisateur::where('email', $request->email)->first();
+
+        // if (!$utilisateur) {
+        //     return back()->with(['err_email_n_e' => 'Ce email n\'existe pas dans la base de données.', 'email' => $request->email]);
+        //     // return back()->with('err_email_n_e', 'Ce email n\'existe pas dans la base de données.');
+        // } elseif ($utilisateur->mot_de_passe != $request->mot_de_passe) {
+        //     return back()->with(['err_mot' => 'L\'email existe dans la base de données mais le mot de passe est incorrect.', 'email' => $request->email, 'mot_de_passe' => $request->mot_de_passe]);
+        //     // return back()->with('err_mot', 'L\'email existe dans la base de données mais le mot de passe est incorrect.');
+        // } else {
+        //     return redirect('/')->with('message_success', 'Authentification réussie!');
+        // }
+
+        if (!$utilisateur) {
+            return back()->withErrors(['email' => 'Ce email n\'existe pas dans la base de données.'])->withInput();
+        } elseif ($utilisateur->mot_de_passe != $request->mot_de_passe) {
+            return back()->withErrors(['mot_de_passe' => 'L\'email existe dans la base de données mais le mot de passe est incorrect.'])->withInput();
+        } else {
+            return redirect('/')->with('message_success', 'Authentification réussie!');
+        }
+    }
+}

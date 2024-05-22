@@ -44,3 +44,9 @@ _
 - l'installation des packages de npm.
 - creer la vue de authentication avec le style.
 _
+
+commit6;
+Ver 2.0.6 : | finir la page d'authentification |
+_
+-  finir la page d'authentification avec le controlleur et la route et aussi les messages d'indiquations.
+_

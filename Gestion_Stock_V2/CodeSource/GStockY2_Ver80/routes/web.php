@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthentificationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('anthentication_page');
+});
+
+
+Route::post('/authentification', [AuthentificationController::class, 'AuthenFun'])->name('authentification');
+
+Route::get('/test', function () {
+    return view('test');
 });

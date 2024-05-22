@@ -5,6 +5,7 @@
     justify-content: center;
     align-items: center;
     align-content: center;
+    height: 90vh;
   }
 
 .Div_container {
@@ -12,12 +13,12 @@
     padding: 10px;
     margin: 10px;
     border-radius: 20px;
-    /* width: 70%; */
     width: 700px;
   }
 
 .titre {
     text-align: center;
+    text-transform: capitalize;
   }
 
   .Div_connecter {
@@ -41,12 +42,21 @@
 
   .Div_email {
     margin: 5px;
+    width: 90%;
+  }
+
+  .Div_btn_s{
+    text-align: center;
   }
 
   .input_lable {
     margin: 10px;
     padding: 5px;
     border-radius: 10px;
+  }
+
+  .input_lable_s_btn{
+    width: 90%;
   }
 
   .Input_item {
@@ -69,4 +79,24 @@
 .btn_rst:hover{
     background-color: rgb(225, 75, 0);
     color: white;
+}
+
+
+.alert_message{
+    padding: 5px;
+    margin: 10px auto;
+    border-radius: 10px;
+    text-align: center;
+    width: 80%;
+    /* text-align: justify; */
+}
+
+.alert_error{
+    background-color: #ffd6cc;
+    color: #ff3300;
+}
+
+.alert_succes{
+    background-color: #d6ffcc;
+    color: #00e600;
 }
