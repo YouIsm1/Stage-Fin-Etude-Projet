@@ -58,3 +58,11 @@ _
 - Creation de layout master.
 - Creation des components Sidenav avec content_section.
 _
+
+
+commit-8;
+Ver 2.0.8 : | Creation de template |
+_
+- Creation de component header.
+- fixer l'error de zoom dans les deux page soit authentification ou home.
+_
