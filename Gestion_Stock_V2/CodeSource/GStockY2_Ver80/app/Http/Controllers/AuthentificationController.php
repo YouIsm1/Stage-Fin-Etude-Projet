@@ -46,23 +46,23 @@ class AuthentificationController extends Controller
         } elseif ($utilisateur->mot_de_passe != $request->mot_de_passe) {
             return back()->withErrors(['mot_de_passe' => 'L\'email existe dans la base de données mais le mot de passe est incorrect.'])->withInput();
         } else {
-            Auth::login($utilisateur);
+            // Auth::login($utilisateur);
             // return redirect('/')->with('message_success', 'Authentification réussie!');
-            // return redirect('/test2')->with(['message_success' => 'Authentification réussie!', 'utilisateur' => $utilisateur]);
-            return redirect('/test2')->with('message_success', 'Authentification réussie!');
+            return redirect('/test2')->with(['message_success' => 'Authentification réussie!', 'utilisateur' => $utilisateur]);
+            // return redirect('/test2')->with('message_success', 'Authentification réussie!');
         }
     }
 
     public function test2(Request $request)
     {
-        // $utilisateur = session('utilisateur');
-        // return view('test2', ['utilisateur' => $utilisateur]);
-        return view('test2');
+        $utilisateur = session('utilisateur');
+        return view('test2', ['utilisateur' => $utilisateur]);
+        // return view('test2');
     }
 
     public function deconnnecter_fun(Request $request){
-        // $request->session()->flush();
-        Auth::logout(); // Déconnecte l'utilisateur
+        $request->session()->flush();
+        // Auth::logout(); // Déconnecte l'utilisateur
         return redirect('/');
     }    
 

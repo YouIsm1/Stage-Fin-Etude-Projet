@@ -196,7 +196,7 @@ return [
 
         
         // pour provider de authentification
-        App\Providers\AuthentificatonProvider::class,
+        // App\Providers\AuthentificatonProvider::class,
     ],
 
     /*
