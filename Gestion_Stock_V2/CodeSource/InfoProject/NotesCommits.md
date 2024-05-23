@@ -50,3 +50,11 @@ Ver 2.0.6 : | finir la page d'authentification |
 _
 -  finir la page d'authentification avec le controlleur et la route et aussi les messages d'indiquations.
 _
+
+
+commit-7;
+Ver 2.0.7 : | Creation de template |
+_
+- Creation de layout master.
+- Creation des components Sidenav avec content_section.
+_

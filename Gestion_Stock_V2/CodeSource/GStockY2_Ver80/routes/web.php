@@ -24,3 +24,7 @@ Route::post('/authentification', [AuthentificationController::class, 'AuthenFun'
 Route::get('/test', function () {
     return view('test');
 });
+
+Route::get('/test2', function () {
+    return view('test2');
+});

@@ -1,6 +1,8 @@
 
 /* @import '../css/Styles/page_authentification.css'; */
 @import url('../css/Styles/page_authentification.css');
+@import url('../css/Styles/sidenav_style.css');
+@import url('../css/Styles/ContentSection_style.css');
 
 *{
     box-sizing: border-box;
@@ -8,4 +10,5 @@
 
 body{
     font-family: 'Times New Roman', Times, serif;
+    margin: 0;
 }
