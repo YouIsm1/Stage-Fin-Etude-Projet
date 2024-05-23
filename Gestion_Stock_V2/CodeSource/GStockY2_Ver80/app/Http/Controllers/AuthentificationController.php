@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Utilisateur;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class AuthentificationController extends Controller
 {
@@ -48,15 +49,17 @@ class AuthentificationController extends Controller
         } else {
             // Auth::login($utilisateur);
             // return redirect('/')->with('message_success', 'Authentification réussie!');
-            return redirect('/test2')->with(['message_success' => 'Authentification réussie!', 'utilisateur' => $utilisateur]);
-            // return redirect('/test2')->with('message_success', 'Authentification réussie!');
+            // return redirect('/test2')->with(['message_success' => 'Authentification réussie!', 'utilisateur' => $utilisateur]);
+            Session::put('utilisateur', $utilisateur);
+            return redirect('/test2')->with('message_success', 'Authentification réussie!');
         }
     }
 
     public function test2(Request $request)
     {
-        $utilisateur = session('utilisateur');
-        return view('test2', ['utilisateur' => $utilisateur]);
+        // $utilisateur = session('utilisateur');
+        // return view('test2', ['utilisateur' => $utilisateur]);
+
         // return view('test2');
     }
 

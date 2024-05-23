@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+// cella pour importer les models
+use App\Models\Role;
+
 class RoleController extends Controller
 {
     /**
@@ -34,7 +37,33 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([  
+            'nom_de_role' => 'required|unique:Roles',
+            // 'role_description' => 'required|unique:Role',
+        ], [
+            'nom_de_role.required' => 'Le champ du rôle est requis.',
+            'nom_de_role.unique' => 'Le rôle a déjà été pris.',
+        ]);
+  
+
+        try {
+            // Create a new utilisateur instance and save the data
+            $role = new Role;
+            $role->nom_de_role = $request->get('nom_de_role');
+            // $role->description = $request->has('description') ? $request->description : '';
+            // $role->description = $request->get('role_description');
+            if ($request->has('description')) {
+                $role->description = $request->description;
+            }
+            $role->save();
+    
+            // Flash a success message to the session
+            return redirect()->back()->with('message_success', 'User added successfully!');
+        } catch (\Exception $e) {
+            // Flash an error message to the session
+            dd($e);
+            return redirect()->back()->with('message_error', 'Failed to add user!');
+        }
     }
 
     /**

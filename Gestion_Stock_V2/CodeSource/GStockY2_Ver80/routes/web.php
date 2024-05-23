@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthentificationController;
 
+// cella pour importer les controlleurs
+use App\Http\Controllers\RoleController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,11 +33,16 @@ Route::get('/test2', function () {
 });
 
 
-Route::get('/test2', [AuthentificationController::class, 'test2'])->name('test2');
+// Route::get('/test2', [AuthentificationController::class, 'test2'])->name('test2');
+
 Route::get('/deconnnecter_fun', [AuthentificationController::class, 'deconnnecter_fun'])->name('deconnnecter_fun');
 
 
 // ceux route pour gerer la gestion des roles
+// lien pour afficher page des roles
 Route::get('/form_role', function(){
     return view('page_add_role');
 });
+
+// Route::res
+Route::resource('_role_', RoleController::class);

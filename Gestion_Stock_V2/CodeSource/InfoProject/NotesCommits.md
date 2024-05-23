@@ -79,3 +79,11 @@ Ver 2.1.0 : | retourner avant Ver 2.0.9 |
 _
 -  Annuler Authentification avec provider
 _
+
+commit-11;
+Ver 2.1.1 : | Nice : role form - doctrine/dba |
+_
+-  Ajouter une formulaire pour ajouter des roles.
+- des modifications sur le css.
+- Installation de packages : doctrine/dbal avec composer.
+_

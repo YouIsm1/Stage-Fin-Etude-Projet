@@ -8,7 +8,7 @@
             </div>
             <div class="dparb">
                 <div class="form_div">
-                    <form action="{{ route('authentification') }}" method="POST">
+                    <form action="{{ route('_role_.store') }}" method="POST">
                         @if(session('message_success'))
                             <div class="alert_message alert_succes">
                                 {{ session('message_success') }}
@@ -22,32 +22,32 @@
                         @endif
                         @csrf
                             <div class="Div_role_name Div_email">
-                                <label class="input_lable input_lable_s_btn" for="role">Nom du Role :</label><br>
-                                <input class="input_lable Input_item input_lable_s_btn" type="text" name="role" id="email" placeholder="Entrer l'email" value="{{ old('email') }}">
-                                @if ($errors->has('role'))
+                                <label class="input_lable input_lable_s_btn" for="nom_de_role">Nom du Role :</label><br>
+                                <input class="input_lable Input_item input_lable_s_btn" type="text" name="nom_de_role" id="email" placeholder="Entrer l'email" value="{{ old('email') }}">
+                                @if ($errors->has('nom_de_role'))
                                     <div class="alert_message alert_error">
-                                        {{ $errors->first('role') }}
+                                        {{ $errors->first('nom_de_role') }}
                                     </div>
                                 @endif
-                                @if(session('err_email_n_e'))
+                                <!-- @ if(session('err_email_n_e'))
                                     <div class="alert_message alert_error">
-                                        {{ session('err_email_n_e') }}
+                                        { { session('err_email_n_e') }}
                                     </div>
-                                @endif
+                                @ endif -->
                             </div>
                             <div class="Div_description_role Div_email Div_password">
-                                <label class="input_lable input_lable_s_btn" for="role_description">La description du Role :</label><br>
-                                <input class="input_lable Input_item input_lable_s_btn" type="text" name="role_description" id="role_description" placeholder="Entrer le mot de passe" value="{{ old('role_description') }}">
-                                @if ($errors->has('role_description'))
+                                <label class="input_lable input_lable_s_btn" for="description">La description du Role :</label><br>
+                                <input class="input_lable Input_item input_lable_s_btn" type="text" name="description" id="role_description" placeholder="Entrer le mot de passe" value="{{ old('role_description') }}">
+                                @if ($errors->has('description'))
                                     <div class="alert_message alert_error">
-                                        {{ $errors->first('role_description') }}
+                                        {{ $errors->first('description') }}
                                     </div>
                                 @endif
-                                @if(session('err_mto'))
+                                <!-- @ if(session('err_mto'))
                                     <div class="alert_message alert_error">
-                                        {{ session('err_mto') }}
+                                        { { session('err_mto') }}
                                     </div>
-                                @endif
+                                @ endif -->
                             </div>
                             <div class="Div_email Div_btn_s" title="Actions">
                                 <button class="input_lable btn btn_sbt" type="submit" class="btn_form">Ajouter</button>
