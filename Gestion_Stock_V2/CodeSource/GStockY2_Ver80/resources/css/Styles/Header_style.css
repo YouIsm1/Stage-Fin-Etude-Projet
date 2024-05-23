@@ -16,7 +16,7 @@
 
 .HeaderComp > h1{
     margin: auto;
-    width: 45%;
+    width: 25%;
     text-align: center;
     vertical-align: middle;
     text-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
@@ -25,7 +25,7 @@
     padding-left: 60px;
 }
 .HeaderComp > nav{
-    width: 45%;
+    width: 65%;
     display: flex;
     /* flex-wrap: nowrap; */
     flex-wrap: wrap;
@@ -48,6 +48,7 @@
     margin: auto 0px;
     /* vertical-align: middle; */
     /* width: 100%; */
+    padding: 0px;
 
 }
 

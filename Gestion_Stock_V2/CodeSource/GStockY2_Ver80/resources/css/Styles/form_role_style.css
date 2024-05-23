@@ -1,0 +1,24 @@
+
+.page_role_div{
+    width: 100%;
+    margin: auto;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+}
+
+.dparb{
+    /* width: 400px;  */
+    margin: auto;
+}
+
+.form_div{
+    width: 50%;
+    margin: auto;
+}
+
+.form_div form{
+    width: 100%;
+    margin: auto;
+}

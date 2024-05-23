@@ -66,3 +66,10 @@ _
 - Creation de component header.
 - fixer l'error de zoom dans les deux page soit authentification ou home.
 _
+
+commit-9;
+Ver 2.0.9 : | login error - modification template avec controlleur |
+_
+- ajouter le logique de deconnections.
+- probleme de authentication multiple page.
+_

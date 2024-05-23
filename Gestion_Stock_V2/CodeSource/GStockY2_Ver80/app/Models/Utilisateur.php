@@ -4,8 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Utilisateur extends Model
+// class Utilisateur extends Model
+class Utilisateur extends Authenticatable
+
 {
     use HasFactory;
 
@@ -21,6 +24,16 @@ class Utilisateur extends Model
             'mot_de_passe',
             'id_Role'
         ]; 
+
+    protected $hidden = [
+        'mot_de_passe',
+        'remember_token',
+    ];
+
+    public function getAuthPassword()
+    {
+        return $this->mot_de_passe;
+    }
 
     // Define the relationship with the role model
     public function role()

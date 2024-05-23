@@ -28,3 +28,13 @@ Route::get('/test', function () {
 Route::get('/test2', function () {
     return view('test2');
 });
+
+
+Route::get('/test2', [AuthentificationController::class, 'test2'])->name('test2');
+Route::get('/deconnnecter_fun', [AuthentificationController::class, 'deconnnecter_fun'])->name('deconnnecter_fun');
+
+
+// ceux route pour gerer la gestion des roles
+Route::get('/form_role', function(){
+    return view('page_add_role');
+});
