@@ -8,6 +8,7 @@
     </head>
     <body>
         <div class="master_page">
+            @include('../Components/HeaderComp')
             @include('../Components/Menu')
             @yield('ContentComp')
         </div>

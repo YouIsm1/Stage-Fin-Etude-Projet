@@ -1,0 +1,81 @@
+
+
+.HeaderComp{
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 5px;
+    /* margin: 5px; */
+    /* margin-top: 0px; */
+    height: 60px;
+    background-color: antiquewhite;
+    /* background-color: black;
+    color: white; */
+    margin-bottom: 15px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.HeaderComp > h1{
+    margin: auto;
+    width: 45%;
+    text-align: center;
+    vertical-align: middle;
+    text-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 60px;
+}
+.HeaderComp > nav{
+    width: 45%;
+    display: flex;
+    /* flex-wrap: nowrap; */
+    flex-wrap: wrap;
+    /* text-align: center; */
+    /* text-align: right; */
+    /* margin: 10px auto; */
+    margin: auto;
+    vertical-align: middle;
+    justify-content: end;
+}
+.HeaderComp ul{
+    display: flex;
+    /* flex-wrap: nowrap; */
+    /* flex-wrap: wrap; */
+    list-style: none;
+    /* padding: 10px; */
+    /* text-align: center; */
+    /* text-align: right; */
+    /* margin: 10px auto; */
+    margin: auto 0px;
+    /* vertical-align: middle; */
+    /* width: 100%; */
+
+}
+
+.HeaderComp .class_li{
+    margin: auto 5px;
+    padding: 5px 15px;
+    background-color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.HeaderComp .class_li:hover {
+    /* background-color: rgba(255, 255, 255, 0.777); */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+
+}
+
+.HeaderComp li a{
+    color: black;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-size: 12px;
+}
+
+.HeaderComp h1 a{
+    color: black;
+    text-decoration: none;
+    /* text-transform: capitalize; */
+    /* font-size: 18px; */
+}

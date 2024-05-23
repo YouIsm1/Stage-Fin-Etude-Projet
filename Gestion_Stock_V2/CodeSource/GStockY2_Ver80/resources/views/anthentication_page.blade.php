@@ -10,7 +10,9 @@
 
         <div class="Div_body">
             <div class="Div_container">
-                <h1 class="titre" >Bienvenue sur la page d'authentification</h1>
+                <div class="div_title">
+                    <h1 class="titre" >Bienvenue sur la page d'authentification</h1>
+                </div>
                 <div class="Div_connecter">
                     <form action="{{ route('authentification') }}" method="POST">
                         @if(session('message_success'))
