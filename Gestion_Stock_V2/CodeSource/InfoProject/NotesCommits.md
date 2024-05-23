@@ -65,6 +65,7 @@ Ver 2.0.8 : | Creation de template |
 _
 - Creation de component header.
 - fixer l'error de zoom dans les deux page soit authentification ou home.
+<<<<<<< HEAD
 _
 
 commit-9;
@@ -72,4 +73,6 @@ Ver 2.0.9 : | login error - modification template avec controlleur |
 _
 - ajouter le logique de deconnections.
 - probleme de authentication multiple page.
+=======
+>>>>>>> f2b2384213311fa751b614aea7e4ffd3fa159ea7
 _
