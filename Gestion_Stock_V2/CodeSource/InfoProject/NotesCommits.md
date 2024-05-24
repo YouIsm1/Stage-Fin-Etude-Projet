@@ -94,3 +94,9 @@ Ver 2.1.2 : | Nice : role form |
 _
 - gestion de message authentification dans la formulaire d'ajouter un role.
 _
+
+commit-2;
+Ver 2.1.3 : | Nice : role form - continue |
+_
+- apres apprendre some of git.
+_
