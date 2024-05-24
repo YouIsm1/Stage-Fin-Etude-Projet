@@ -55,13 +55,13 @@ class AuthentificationController extends Controller
         }
     }
 
-    public function test2(Request $request)
-    {
-        // $utilisateur = session('utilisateur');
-        // return view('test2', ['utilisateur' => $utilisateur]);
+    // public function test2(Request $request)
+    // {
+    //     // $utilisateur = session('utilisateur');
+    //     // return view('test2', ['utilisateur' => $utilisateur]);
 
-        // return view('test2');
-    }
+    //     // return view('test2');
+    // }
 
     public function deconnnecter_fun(Request $request){
         $request->session()->flush();

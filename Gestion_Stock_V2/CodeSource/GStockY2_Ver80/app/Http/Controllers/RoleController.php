@@ -58,12 +58,19 @@ class RoleController extends Controller
             $role->save();
     
             // Flash a success message to the session
-            return redirect()->back()->with('message_success', 'User added successfully!');
+        //     return redirect()->back()->with('message_success', 'Le role ajoutee avec succees');
+        // } catch (\Exception $e) {
+        //     // Flash an error message to the session
+        //     dd($e);
+        //     return redirect()->back()->with('message_error', 'echec d\'ajputer le role');
+        // }
+            return redirect()->back()->with('message_success', 'Le rôle a été ajouté avec succès.');
         } catch (\Exception $e) {
             // Flash an error message to the session
             dd($e);
-            return redirect()->back()->with('message_error', 'Failed to add user!');
+            return redirect()->back()->with('message_error', 'Échec de l\'ajout du rôle.');
         }
+
     }
 
     /**

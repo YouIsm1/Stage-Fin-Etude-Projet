@@ -87,3 +87,10 @@ _
 - des modifications sur le css.
 - Installation de packages : doctrine/dbal avec composer.
 _
+
+24/05/24 :
+commit-1;
+Ver 2.1.2 : | Nice : role form |
+_
+- gestion de message authentification dans la formulaire d'ajouter un role.
+_
