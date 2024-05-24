@@ -1,0 +1,1 @@
+Supprimer une branche non fusionnée : Si vous voulez supprimer une branche indépendamment de son état de fusion, vous pouvez utiliser la commande git branch -D (avec une majuscule) suivie du nom de la branche. Par exemple :
