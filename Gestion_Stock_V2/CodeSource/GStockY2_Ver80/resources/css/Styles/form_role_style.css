@@ -26,9 +26,11 @@
 .form_div form{
     width: 90%;
     margin: auto;
+    background-color: rgba(255, 255, 255, 0.415);
 }
 
-.alert_message{
+/* ..alert_message{ */
+.alert_message_role {
     margin: 10px;
     width: 90%;
 }

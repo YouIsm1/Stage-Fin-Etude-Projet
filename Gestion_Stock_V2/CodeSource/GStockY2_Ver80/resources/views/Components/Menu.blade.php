@@ -48,7 +48,7 @@
                 <button class="dropdown-btn">Gestion des Roles</button>
                 <div class="dropdown-content">
                     <a href="/form_role">Ajouter un Role</a>
-                    <a href="#">Afficher les Roles</a>
+                    <a href=" {{ route('_role_.index') }} ">Afficher les Roles</a>
                 </div>
             </div>
             <div class="dropdown">

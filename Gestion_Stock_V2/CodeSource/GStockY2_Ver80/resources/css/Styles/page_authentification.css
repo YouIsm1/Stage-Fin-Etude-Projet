@@ -37,7 +37,8 @@
     width: 80%;
   }
 
-  form {
+  /* form { */
+.form_item {
     width: 65%;
     display: flex;
     flex-direction: column;

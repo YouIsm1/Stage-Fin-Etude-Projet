@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 // cella pour importer les models
 use App\Models\Role;
@@ -16,7 +17,10 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //
+        // c'est pour afficher les donnees des roles dans la page page_aff_role
+        $roles_data = Role::all();
+        return view('page_aff_role', compact('roles_data'));
+        // return view('page_aff_role', compact('roles_data'))->response();
     }
 
     /**
@@ -90,10 +94,18 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id_Role)
     {
-        //
+        $role_data = Role::find($id_Role);  
+    
+        if (!$role_data) {
+            // Gérer le cas où le rôle n'est pas trouvé
+            return redirect()->route('_role_.index')->with('message_error', 'Rôle introuvable.');
+        }
+    
+        return view('page_edit_role', compact('role_data')); 
     }
+    
 
     /**
      * Update the specified resource in storage.
@@ -102,9 +114,34 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_Role)
     {
-        //
+        $request->validate([  
+            // 'nom_de_role' => 'required|unique:Roles,nom_de_role,' . $id_Role,   // cella pour esoudre le probleme de unique nom_de_role
+            'nom_de_role' => 'required|unique:Roles,nom_de_role,' . $id_Role . ',id_Role',
+            // 'role_description' => 'required|unique:Role',
+        ], [
+            'nom_de_role.required' => 'Le champ du rôle est requis.',
+            'nom_de_role.unique' => 'Le rôle a déjà été pris.',
+        ]);
+  
+
+        try {
+            // $role = new Role;
+            $role = Role::find($id_Role);
+            $role->nom_de_role = $request->get('nom_de_role');
+            if ($request->has('description')) {
+                $role->description = $request->description;
+            }
+            $role->save();
+            // return redirect()->back()->with('message_success', 'Le rôle a été mise a jour avec succès.');
+            return redirect()->route('_role_.index')->with('message_success', 'Le rôle a été mise a jour avec succès.');
+        } catch (\Exception $e) {
+            // Flash an error message to the session
+            dd($e);
+            return redirect()->back()->with('message_error', 'Échec de mise a jour du rôle.');
+            // return redirect()->route('_role_.index')->with('message_error', 'Échec de mise a jour du rôle.');
+        }
     }
 
     /**
@@ -113,8 +150,15 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    // public function destroy($id)
+    public function destroy($id_Role)
     {
-        //
+        try {
+            $role = Role::find($id_Role);  
+            $role->delete(); 
+            return redirect()->route('_role_.index')->with('message_success', 'L\'enregistrement a été supprimé');    
+        } catch (\Exception $e) {
+            return redirect()->route('_role_.index')->with('message_error', 'Échec de la suppression du rôle');
+        }
     }
 }
