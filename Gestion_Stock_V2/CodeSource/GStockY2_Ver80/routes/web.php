@@ -42,7 +42,7 @@ Route::get('/deconnnecter_fun', [AuthentificationController::class, 'deconnnecte
 // lien pour afficher page des roles
 Route::get('/form_role', function(){
     return view('page_add_role');
-});
+})->name('/form_role');
 
 // Route::res
 Route::resource('_role_', RoleController::class);

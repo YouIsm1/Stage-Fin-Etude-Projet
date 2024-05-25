@@ -103,3 +103,14 @@ _
 
 commit-3;
 Ver 2.1.4 : | Nice : continue projet |
+
+25/05/24 :
+commit-1;
+Ver 2.1.5 : | creation du table role completement |
+_
+- modifier la forme comme le menu id administrateur requis.
+- text align cent dans li a dans le header.
+- ajouter page index role.
+- ajouter des liens pour naviger entre page index et store role.
+- redijer le style generalle.
+_

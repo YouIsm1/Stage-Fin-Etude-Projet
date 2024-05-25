@@ -1,0 +1,70 @@
+
+
+.table_div{
+    width: 90%;
+    margin: auto;
+    overflow-x:auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.table_item{
+    width: 100%;
+    margin: auto;
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: auto;  /* Ajouté */
+    border-radius: 10px;
+}
+
+
+.table_item th, .table_item td {
+    text-align: left;
+    padding: 8px;
+    white-space: nowrap;  /* Ajouté pour éviter le wrapping du contenu */
+    text-align: center;
+  }
+
+  .table_item tr:nth-child(even){
+        background-color: #ffffff
+    }
+.table_item td{
+    /* background-color: #ffffff */
+    background-color: rgba(255, 255, 255, 0.415);
+}
+
+.dpafrb{
+    padding-bottom: 15px;
+}
+
+.btn{
+    margin: 5px;
+    padding: 10px auto;
+    border-radius: 20px;
+    border: none;
+    background-color: white;
+    /* width: 100%; */
+  }
+
+.btn_sbt:hover{
+    background-color: rgb(75, 225, 0);
+    color: white;
+}
+.btn_rst:hover{
+    background-color: rgb(225, 75, 0);
+    color: white;
+}
+
+.btn_add_role_link{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn_add_role_link .btn a{
+    text-decoration: none;
+    color: black;
+}
+
+.btn_add_role_link .btn a:hover{
+    background-color: rgb(75, 225, 0);
+    color: white;
+}

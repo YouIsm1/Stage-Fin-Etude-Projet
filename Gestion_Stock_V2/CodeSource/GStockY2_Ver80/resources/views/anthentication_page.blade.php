@@ -14,7 +14,7 @@
                     <h1 class="titre" >Bienvenue sur la page d'authentification</h1>
                 </div>
                 <div class="Div_connecter">
-                    <form action="{{ route('authentification') }}" method="POST">
+                    <form class="form_item" action="{{ route('authentification') }}" method="POST">
                         @if(session('message_success'))
                             <div class="alert_message alert_succes">
                                 {{ session('message_success') }}
