@@ -54,8 +54,8 @@
             <div class="dropdown">
                 <button class="dropdown-btn">Gestion d'utilisateur</button>
                 <div class="dropdown-content">
-                    <a href="#">Ajouter un utilisateur</a>
-                    <a href="#">Afficher les utilisateur</a>
+                    <a href=" {{ route('form_user') }} ">Ajouter un utilisateur</a>
+                    <a href=" {{ route('_user_.index') }} ">Afficher les utilisateur</a>
                 </div>
             </div>
             <div class="dropdown">
@@ -66,17 +66,17 @@
                 </div>
             </div>
             <div class="dropdown">
-                <button class="dropdown-btn">Gestion des Stocks</button>
-                <div class="dropdown-content">
-                    <a href="#">Ajouter un Stock</a>
-                    <a href="#">Afficher les Stocks</a>
-                </div>
-            </div>
-            <div class="dropdown">
                 <button class="dropdown-btn">Gestion des Produits</button>
                 <div class="dropdown-content">
                     <a href="#">Ajouter un Produits</a>
                     <a href="#">Afficher les produits</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropdown-btn">Gestion des Stocks</button>
+                <div class="dropdown-content">
+                    <a href="#">Ajouter un Stock</a>
+                    <a href="#">Afficher les Stocks</a>
                 </div>
             </div>
             <div class="dropdown">
