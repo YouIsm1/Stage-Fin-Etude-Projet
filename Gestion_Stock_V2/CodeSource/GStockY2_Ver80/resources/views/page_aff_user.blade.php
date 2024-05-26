@@ -4,10 +4,10 @@
 @section('ContentComp')
     <div class="content_section">
         @if(session()->has('utilisateur') && session('utilisateur.role.id_Role') == 1)
-            @if (isset($roles_data))
+            @if (isset($users_data))
                 <div class="index_role page_role_div">
                     <div class="titre">
-                        <h1>Voila tous les roles</h1>
+                        <h1>Voila tous les Utilisateurs</h1>
                     </div>
                     <div class="dparb dpafrb">
                         <div class="table_div">
@@ -25,32 +25,37 @@
                             <table class="table_item" border="1px solid white">
                                 <thead>
                                     <tr>
-                                        <td> ID du role </td>
-                                        <td> nom du role </td>
-                                        <td> description du role </td>
+                                        <td> ID du utilisateur </td>
+                                        <td> prenom du utilisateur </td>
+                                        <td> nom du utilisateur </td>
+                                        <td> l'email du utilisateur </td>
+                                        <td> Mot de passe </td>
+                                        <td> le role </td>
                                         <td> la date d'ajout </td>
                                         <td> la date de mise a jour </td>
                                         <td colspan="2">Actions</td>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($roles_data as $role_data)
+                                    @foreach($users_data as $user_data)
                                             <tr border="none">
-                                                <td> {{ $role_data -> id_Role }} </td>
-                                                <td> {{ $role_data -> nom_de_role }} </td>
-                                                <td> {{ $role_data -> description }} </td>
-                                                <!-- <td> { { $role_data -> price }} </td>   -->
-                                                <td> {{ $role_data -> created_at }} </td>
-                                                <td> {{ $role_data -> updated_at }} </td>
+                                                <td> {{ $user_data -> id_Utilisateur }} </td>
+                                                <td> {{ $user_data -> prenom }} </td>
+                                                <td> {{ $user_data -> nom }} </td>
+                                                <td> {{ $user_data -> email }} </td>
+                                                <td> {{ $user_data -> mot_de_passe }} </td>
+                                                <td> {{ $user_data -> role -> nom_de_role }} </td>
+                                                <td> {{ $user_data -> created_at }} </td>
+                                                <td> {{ $user_data -> updated_at }} </td>
                                                 <td >
-                                                    <form action="{{ route('_role_.destroy', $role_data->id_Role) }}" method="post">
+                                                    <form action="{{ route('_user_.destroy', $user_data->id_Utilisateur) }}" method="post">
                                                         @csrf
                                                         @method('DELETE')
                                                             <button class="btn btn_rst" type="submit">Supprimer</button>
                                                     </form>
                                                 </td>
                                                 <td >
-                                                    <form action="{{ route('_role_.edit', $role_data->id_Role) }}" method="GET">
+                                                    <form action="{{ route('_user_.edit', $user_data->id_Utilisateur) }}" method="GET">
                                                         @csrf
                                                             <button class="btn btn_sbt" type="submit">Modifier</button>
                                                     </form>
@@ -62,13 +67,13 @@
                         </div>
                     </div>
                     <div class="page_role_div dparb dpafrb btn_add_role_link">
-                        <button class="btn btn_sbt"><a href=" {{ route('/form_role') }} "> Ajouter un Role </a></button>
+                        <button class="btn btn_sbt"><a href=" {{ route('form_user') }} "> Ajouter un Utilisateur </a></button>
                     </div>
                 </div>
-                @else
+            @else
                 <div class="page_role_div dparb dpafrb btn_add_role_link">
-                     <p>Il y a aucun role.</p>
-                    <button class="btn btn_sbt"><a href=" {{ route('/form_role') }} "> Ajouter un Role </a></button>
+                     <p>Il y a aucun utilisateur.</p>
+                    <button class="btn btn_sbt"><a href=" {{ route('form_user') }} "> Ajouter un Utilisateur </a></button>
                 </div>
             @endif
         @else

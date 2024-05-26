@@ -106,11 +106,21 @@ Ver 2.1.4 : | Nice : continue projet |
 
 25/05/24 :
 commit-1;
-Ver 2.1.5 : | creation du table role completement |
+Ver 2.1.5 : | creation du table role complètement |
 _
 - modifier la forme comme le menu id administrateur requis.
 - text align cent dans li a dans le header.
 - ajouter page index role.
 - ajouter des liens pour naviger entre page index et store role.
 - redijer le style generalle.
+_
+
+26/05/24 :
+commit-1;
+Ver 2.1.6 : | creation du table utilisateur complètement |
+_
+- modifier dans la page aff role pour verifier l'existence du role si aucun afficher un message pour le indiquer.
+- creation de page pour ajouter un utilisateur.
+- Creation de table utilisateur CRUD complet.
+- ajouter la partie comme un profile pour modifier les infos personnelles dans la page home apres l'authentification.
 _
