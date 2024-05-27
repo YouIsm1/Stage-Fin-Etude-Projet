@@ -1,0 +1,19 @@
+
+/* #btn_add_img{
+    background-color: white;
+    color: black;
+}
+
+#btn_add_img:hover{
+    background-color: rgb(75, 225, 0);
+    color: white;
+} */
+
+#id_img_file{
+    /* margin-top: 30px; */
+    margin-top: 15px;
+}
+
+.border_inpt{
+    border: 2.5px solid white;
+}

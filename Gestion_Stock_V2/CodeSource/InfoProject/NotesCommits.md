@@ -145,7 +145,17 @@ _
 
 
 commit-2;
-Ver 2.1.9 : |  |
+Ver 2.1.9 : | Debut creation de table produit |
 _
 - 
+_
+
+
+commit-3;
+Ver 2.2.0 : | Creation du table Produit PAS Complet |
+_
+- Ajouter la fonction d'ajoute les infos avec les images.
+- Ajouter la fct pour afficher les infos des produits.
+- Remarquer : on peut afficher les images dans le tableau des infos mais je les commenter.
+- Ajouter la fct pour supprimer un produits.
 _
