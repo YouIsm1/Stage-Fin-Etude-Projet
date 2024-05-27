@@ -59,5 +59,6 @@ Route::resource('_cate_', CategorieController::class);
 
 
 // Routes pour gerer les produits
-Route::get('/form_prod', [CategorieController::class, 'fun_form_prod'])->name('form_prod');
+Route::get('/form_prod', [ProduitController::class, 'fun_form_prod'])->name('form_prod');
+Route::get('_prod_Detailles', [ProduitController::class, 'fun_prod_Detailles'])->name('_prod_Detailles');
 Route::resource('_prod_', ProduitController::class);
