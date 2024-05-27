@@ -136,9 +136,16 @@ _
 _
 
 
-227/05/24 :
+27/05/24 :
 commit-1;
 Ver 2.1.8 : | Completer du table de catégorie |
 _
 - Ajouter la possibilité de modifier les categories.
+_
+
+
+commit-2;
+Ver 2.1.9 : |  |
+_
+- 
 _

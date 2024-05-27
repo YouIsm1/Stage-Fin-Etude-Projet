@@ -7,6 +7,7 @@ use App\Http\Controllers\AuthentificationController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategorieController;
+use App\Http\Controllers\ProduitController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,3 +56,8 @@ Route::resource('_user_', UserController::class);
 // Routes pour gérer les Categories
 Route::get('/form_cate', [CategorieController::class, 'form_categ'])->name('form_cate');
 Route::resource('_cate_', CategorieController::class);
+
+
+// Routes pour gerer les produits
+Route::get('/form_prod', [CategorieController::class, 'fun_form_prod'])->name('form_prod');
+Route::resource('_prod_', ProduitController::class);

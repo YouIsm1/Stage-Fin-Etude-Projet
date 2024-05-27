@@ -68,7 +68,7 @@
             <div class="dropdown">
                 <button class="dropdown-btn">Gestion des Produits</button>
                 <div class="dropdown-content">
-                    <a href="#">Ajouter un Produit</a>
+                    <a href=" {{ route('form_prod') }} ">Ajouter un Produit</a>
                     <a href="#">Afficher les produits</a>
                 </div>
             </div>
