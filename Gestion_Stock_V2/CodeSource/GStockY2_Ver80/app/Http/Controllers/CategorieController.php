@@ -58,7 +58,7 @@ class CategorieController extends Controller
                 }
                 $categorie->ID_Utilisateur_R_administrateur = $request->ID_Utilisateur_R_administrateur; // L'utilisateur qui a ajouté la catégorie
                 $categorie->save();
-                return redirect()->back()->with('message_success', 'La catégorie a été ajoutée avec succès.');
+                return redirect()->route('_cate_.index')->with('message_success', 'La catégorie a été ajoutée avec succès.');
             } catch (\Exception $e) {
                 dd($e);
                 return redirect()->back()->with('message_error', 'Échec de l\'ajout de la catégorie.');
@@ -102,9 +102,34 @@ class CategorieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_categorie)
     {
-        //
+        // Validation des données du formulaire
+        $request->validate([
+            'nom' => 'required|min:4|unique:categories,nom,' . $id_categorie . ',id_categorie',
+            // 'description' => 'required|min:4',
+        ], [
+            'nom.required' => 'Le nom de la catégorie est requis.',
+            'nom.min' => 'Le nom de la catégorie doit comporter au moins 4 caractères.',
+            'nom.unique' => 'Le nom de la catégorie doit être unique. Alors, a déjà été pris.',
+            // 'description.required' => 'La description de la catégorie est requise.',
+            // 'description.min' => 'La description de la catégorie doit comporter au moins 4 caractères.',
+        ]);
+
+        // Mise à jour des données de la catégorie
+        try {
+            $categorie = Categorie::find($id_categorie);
+            $categorie->nom = $request->nom;
+            // $categorie->description = $request->description;
+            if ($request->has('description')) {
+                $categorie->description = $request->description;
+            }
+            $categorie->save();
+
+            return redirect()->route('_cate_.index')->with('message_success', 'La catégorie a été mise à jour avec succès.');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('message_error', 'Échec de la mise à jour de la catégorie.');
+        }
     }
 
     /**

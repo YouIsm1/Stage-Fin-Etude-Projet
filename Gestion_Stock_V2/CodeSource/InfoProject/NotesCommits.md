@@ -134,3 +134,11 @@ _
 - ajouter une formulaire pour ajouter des categories.
 - afficher les categories et donner la possibilité de suppression.
 _
+
+
+227/05/24 :
+commit-1;
+Ver 2.1.8 : | Completer du table de catégorie |
+_
+- Ajouter la possibilité de modifier les categories.
+_
