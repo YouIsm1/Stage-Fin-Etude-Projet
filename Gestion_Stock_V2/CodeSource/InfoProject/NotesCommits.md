@@ -124,3 +124,13 @@ _
 - Creation de table utilisateur CRUD complet.
 - ajouter la partie comme un profile pour modifier les infos personnelles dans la page home apres l'authentification.
 _
+
+
+26_27/05/24 :
+commit-1;
+Ver 2.1.7 : | Creation PAS Complet du table de catégorie |
+_
+- une petite modification dans le menu.
+- ajouter une formulaire pour ajouter des categories.
+- afficher les categories et donner la possibilité de suppression.
+_

@@ -61,14 +61,14 @@
             <div class="dropdown">
                 <button class="dropdown-btn">Gestion des Categories</button>
                 <div class="dropdown-content">
-                    <a href="#">Ajouter une Categories</a>
-                    <a href="#">Afficher les Categories</a>
+                    <a href=" {{ route('form_cate') }} ">Ajouter une Categorie</a>
+                    <a href=" {{ route('_cate_.index') }} ">Afficher les Categories</a>
                 </div>
             </div>
             <div class="dropdown">
                 <button class="dropdown-btn">Gestion des Produits</button>
                 <div class="dropdown-content">
-                    <a href="#">Ajouter un Produits</a>
+                    <a href="#">Ajouter un Produit</a>
                     <a href="#">Afficher les produits</a>
                 </div>
             </div>

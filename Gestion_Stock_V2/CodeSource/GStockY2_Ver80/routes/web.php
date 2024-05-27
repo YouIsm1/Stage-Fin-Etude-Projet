@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthentificationController;
 // cella pour importer les controlleurs
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CategorieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,3 +50,8 @@ Route::resource('_role_', RoleController::class);
 // Routes pour gérer les utilisateurs
 Route::get('/form_user', [UserController::class, 'aff_form_user'])->name('form_user');
 Route::resource('_user_', UserController::class);
+
+
+// Routes pour gérer les Categories
+Route::get('/form_cate', [CategorieController::class, 'form_categ'])->name('form_cate');
+Route::resource('_cate_', CategorieController::class);
