@@ -102,6 +102,6 @@
             </div>
         @endif
     @else
-        <p class="pr_no_user alert_message alert_error">No user data available.</p>
+        <p class="pr_no_user alert_message alert_error">Vous êtes pas autorisée pour entrer cette page.</p>
     @endif
 </div>
