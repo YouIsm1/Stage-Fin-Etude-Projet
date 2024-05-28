@@ -105,22 +105,23 @@
                                     </div>
                                     <div class="Div_role_name Div_email">
                                         <label class="input_lable input_lable_s_btn" for="description">Description du Produit :</label><br>
-                                        <input class="input_lable Input_item input_lable_s_btn" type="description" name="description" id="description" placeholder="Entrer la description du Produit" value="{{ old('description') }}">
+                                        <!-- <input class="input_lable Input_item input_lable_s_btn" type="description" name="description" id="description" placeholder="Entrer la description du Produit" value="{ { old('description') }}"> -->
+                                        <textarea class="input_lable Input_item input_lable_s_btn" type="description" name="description" id="description" placeholder="Entrer la description du Produit" value="{{ old('description') }}"></textarea>
                                         @if ($errors->has('description'))
                                             <div class="alert_error alert_message alert_message_role">
                                                 {{ $errors->first('description') }}
                                             </div>
                                         @endif
                                     </div>
-                                    <div class="Div_role_name Div_email">
+                                    <!-- <div class="Div_role_name Div_email">
                                         <label class="input_lable input_lable_s_btn" for="quantite">Quantité :</label><br>
-                                        <input min="4" class="input_lable Input_item input_lable_s_btn" type="number" name="quantite" id="quantite" placeholder="Entrer la Quantité du produit" value="{{ old('quantite') }}">
-                                        @if ($errors->has('quantite'))
+                                        <input min="4" class="input_lable Input_item input_lable_s_btn" type="number" name="quantite" id="quantite" placeholder="Entrer la Quantité du produit" value="{ { old('quantite') }}">
+                                        @ if ($errors->has('quantite'))
                                             <div class="alert_error alert_message alert_message_role">
-                                                {{ $errors->first('quantite') }}
+                                                { { $errors->first('quantite') }}
                                             </div>
-                                        @endif
-                                    </div>
+                                        @ endif
+                                    </div> -->
                                     <div class="Div_role_name Div_email">
                                         <label class="input_lable input_lable_s_btn" for="prix">Prix :</label><br>
                                         <input min="4" class="input_lable Input_item input_lable_s_btn" type="number" name="prix" id="prix" placeholder="Entrer le prix du produit" value="{{ old('prix') }}">
