@@ -93,7 +93,7 @@
                     </div>
                 </div>
             @else
-                <p>Il y a aucune donee pour role.</p>
+                <p>Il y a aucune donee pour Utilisateur.</p>
             @endif
         @else
             <p>Vous êtes pas autorisée pour entrer cette page.</p>

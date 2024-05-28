@@ -162,10 +162,18 @@ _
 
 
 28/05/24 :
+commit-1;
 Ver 2.2.1 : | Creation du table Stock PAS complet, Mdf produit |
 _
 - Ajouter fct store pour ajouter les donnees d'un stock.
 - modifier la formulaire duu produit puisque la quantité doit 0 avant une quantité l'entrant.
 - Ajouter la possibilité de supprimer les stocks.
 - Ajouter la fct index pour Afficher les donnees des stocks.
+_
+
+
+commit-2;
+Ver 2.2.2 : | PAS creation de fct edit/update stock  |
+_
+- des erreurs dans partie de quantité de dans edit page stock.
 _
