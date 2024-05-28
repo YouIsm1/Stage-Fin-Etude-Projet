@@ -83,35 +83,13 @@
                                     <div class="Div_role_name Div_email">
                                         <label class="input_lable input_lable_s_btn" for="Quantite">Quantité :</label><br>
                                         <!-- <input class="input_lable Input_item input_lable_s_btn" type="number" name="Quantite" id="quantite" placeholder="Entrer la Quantité du produit" min="1" value="{ { $Stock_data -> Quantite }}" > -->
-                                        <input class="input_lable Input_item input_lable_s_btn" type="number" name="Quantite" id="quantite" placeholder="Entrer la Quantité du produit" min="1" value_data="{{ $Stock_data -> Quantite }}" value="">
+                                        <input class="input_lable Input_item input_lable_s_btn" type="number" name="Quantite" id="quantite" placeholder="Entrer la Quantité du produit" min="1" value_data="{{ $Stock_data->Quantite }}" value="{{ $Stock_data->Quantite }}">
                                         @if ($errors->has('Quantite'))
                                             <div class="alert_error alert_message alert_message_role">
                                                 {{ $errors->first('Quantite') }}
                                             </div>
                                         @endif
                                     </div>
-                                    
-                                    <!-- <div class="Div_description_role Div_email Div_password">
-                                        <label class="input_lable input_lable_s_btn" for="id_Role">Le Role :</label><br>
-                                        <select class="input_lable Input_item input_lable_s_btn" name="id_Role" id="">
-                                            @ if (isset($roles_data))
-                                                <option value="">Choisir un rôle</option>
-                                                @ foreach($roles_data as $role_data)
-                                                    <option value="{ { $role_data->id_Role }}"
-                                                        @ if(isset($Stock_data) && $Stock_data->id_Role == $role_data->id_Role) selected @ endif>
-                                                        { { $role_data->nom_de_role }}
-                                                    </option>
-                                                @ endforeach
-                                            @ else
-                                                <option value="">--Il n'y a aucun rôle--</option>
-                                            @ endif
-                                        </select>
-                                        @ if ($errors->has('id_Role'))
-                                            <div class="alert_message alert_message_role alert_error">
-                                                { { $errors->first('id_Role') }}
-                                            </div>
-                                        @ endif
-                                    </div> -->
                                     <div class="Div_email Div_btn_s" title="Actions">
                                         <button class="input_lable btn btn_rst btn_ann" type="reset"  class="btn_form">annuler</button>
                                         <button class="input_lable btn btn_sbt" type="submit" class="btn_form">Enregistrer</button>
@@ -136,94 +114,9 @@
         @endif
     </div>
 
-    <!-- <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const produitSelect = document.getElementById('ID_Produit');
-            const quantiteInput = document.getElementById('quantite');
-            const statusSelect = document.getElementById('status');
 
-            produitSelect.addEventListener('change', function() {
-                updateQuantite();
-            });
-
-            statusSelect.addEventListener('change', function() {
-                updateQuantite();
-            });
-
-            function updateQuantite() {
-                const selectedOption = produitSelect.options[produitSelect.selectedIndex];
-                const quantite = selectedOption.getAttribute('data-quantite');
-                const status = statusSelect.value;
-
-                if (status === 'Sortant' && quantite) {
-                    quantiteInput.max = quantite;
-                    quantiteInput.value = quantite;
-                } else {
-                    quantiteInput.removeAttribute('max');
-                    quantiteInput.value = quantite;
-                }
-            }
-        });
-    </script> -->
 
     <!-- <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const produitSelect = document.getElementById('ID_Produit');
-            const quantiteInput = document.getElementById('quantite');
-            const statusSelect = document.getElementById('status');
-
-            produitSelect.addEventListener('change', updateQuantite);
-            statusSelect.addEventListener('change', updateQuantite);
-
-            function updateQuantite() {
-                const selectedOption = produitSelect.options[produitSelect.selectedIndex];
-                const quantite = selectedOption.getAttribute('data-quantite');
-                const quantite_data_value = quantiteInput.getAttribute('value_data');
-                const status = statusSelect.value;
-
-                if (status === 'Sortant' && quantite) {
-                    quantiteInput.max = quantite;
-                    quantiteInput.value = quantite_data_value;
-                } else {
-                    quantiteInput.removeAttribute('max');
-                    quantiteInput.value = quantite_data_value;
-                }
-            }
-
-            // Initial call to set the quantity based on the initial state
-            updateQuantite();
-        });
-    </script> -->
-
-    <!-- <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const produitSelect = document.getElementById('ID_Produit');
-            const quantiteInput = document.getElementById('quantite');
-            const statusSelect = document.getElementById('status');
-
-            produitSelect.addEventListener('change', updateQuantite);
-            statusSelect.addEventListener('change', updateQuantite);
-
-            function updateQuantite() {
-                const selectedOption = produitSelect.options[produitSelect.selectedIndex];
-                const quantite = selectedOption.getAttribute('data-quantite');
-                const status = statusSelect.value;
-
-                if (status === 'Sortant' && quantite) {
-                    quantiteInput.max = quantite;
-                    quantiteInput.value = Math.min(quantiteInput.value, quantite); // S'assure que la quantité n'excède pas le max
-                } else {
-                    quantiteInput.removeAttribute('max');
-                }
-            }
-
-            // Initial call to set the quantity based on the initial state
-            updateQuantite();
-        });
-    </script> -->
-
-
-    <script>
         document.addEventListener('DOMContentLoaded', function() {
             const produitSelect = document.getElementById('ID_Produit');
             const quantiteInput = document.getElementById('quantite');
@@ -250,7 +143,7 @@
             // Appel initial pour définir la quantité en fonction de l'état initial
             updateQuantite();
         });
-    </script>
+    </script> -->
 
 
 @endsection

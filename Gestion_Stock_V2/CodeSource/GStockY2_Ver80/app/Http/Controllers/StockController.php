@@ -129,9 +129,21 @@ class StockController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id_stock)
     {
-        //
+        $Stock_data = Utilisateur::find($id_stock);
+
+        if (!$Stock_data) {
+            return redirect()->route('_stock_.index')->with('message_error', 'Stock introuvable.');
+        }
+
+        // return view('page_edit_user', compact('user_data', 'roles_data'));
+
+        $administrateurs = Utilisateur::where('id_Role', 1)->get();
+        $fournisseurs = Utilisateur::where('id_Role', 10)->get();
+        $produits_data = Produit::with('photos')->get();
+        return view('page_edit_stock_2', compact('Stock_data', 'administrateurs', 'fournisseurs', 'produits_data'));
+        // return view('page_edit_stock', compact('Stock_data', 'administrateurs', 'fournisseurs', 'produits_data'));
     }
 
     /**
@@ -166,7 +178,6 @@ class StockController extends Controller
                 $produit->quantite += $stock->Quantite;
             } elseif ($stock->status === 'Entrant') {
                 if ($produit->quantite < $stock->Quantite) {
-                    // return redirect()->back()->with('message_error', 'Quantité insuffisante pour ce produit.')->withInput();
                     $produit->quantite = 0;
                 }else{
                     $produit->quantite -= $stock->Quantite;
