@@ -159,3 +159,13 @@ _
 - Remarquer : on peut afficher les images dans le tableau des infos mais je les commenter.
 - Ajouter la fct pour supprimer un produits.
 _
+
+
+28/05/24 :
+Ver 2.2.1 : | Creation du table Stock PAS complet, Mdf produit |
+_
+- Ajouter fct store pour ajouter les donnees d'un stock.
+- modifier la formulaire duu produit puisque la quantité doit 0 avant une quantité l'entrant.
+- Ajouter la possibilité de supprimer les stocks.
+- Ajouter la fct index pour Afficher les donnees des stocks.
+_

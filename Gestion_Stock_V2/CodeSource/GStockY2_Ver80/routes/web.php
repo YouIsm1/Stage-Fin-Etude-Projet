@@ -8,6 +8,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\ProduitController;
+use App\Http\Controllers\StockController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,3 +63,7 @@ Route::resource('_cate_', CategorieController::class);
 Route::get('/form_prod', [ProduitController::class, 'fun_form_prod'])->name('form_prod');
 Route::get('_prod_Detailles', [ProduitController::class, 'fun_prod_Detailles'])->name('_prod_Detailles');
 Route::resource('_prod_', ProduitController::class);
+
+// Routes pour gérer le stock
+Route::get('/form_stock', [StockController::class, 'fun_form_stock'])->name('form_stock');
+Route::resource('_stock_', StockController::class);

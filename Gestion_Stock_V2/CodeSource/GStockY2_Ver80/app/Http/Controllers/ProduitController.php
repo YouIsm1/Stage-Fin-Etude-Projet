@@ -53,7 +53,7 @@ class ProduitController extends Controller
         $request->validate([
             'nom' => 'required|string|max:255',
             'description' => 'required|string|max:1000',
-            'quantite' => 'required|integer|min:1',
+            // 'quantite' => 'required|integer|min:1',
             'prix' => 'required|numeric|min:0',
             'id_categorie' => 'required|exists:categories,id_categorie',
             'nom_1' => 'required|file|mimes:jpg,png,jpeg|max:2048',
@@ -63,7 +63,7 @@ class ProduitController extends Controller
         ], [
             'nom.required' => 'Le nom du produit est obligatoire.',
             'description.required' => 'La description du produit est obligatoire.',
-            'quantite.required' => 'La quantité du produit est obligatoire.',
+            // 'quantite.required' => 'La quantité du produit est obligatoire.',
             'prix.required' => 'Le prix du produit est obligatoire.',
             'id_categorie.required' => 'La catégorie du produit est obligatoire.',
             'mimes' => 'Le fichier doit être une image (jpg, jpeg, png).',
@@ -75,7 +75,8 @@ class ProduitController extends Controller
             $produit = Produit::create([
                 'nom' => $request->nom,
                 'description' => $request->description,
-                'quantite' => $request->quantite,
+                // 'quantite' => $request->quantite,
+                'quantite' => 0,
                 'prix' => $request->prix,
                 'ID_Utilisateur_R_administrateur' => $request->ID_Utilisateur_R_administrateur,
                 'id_categorie' => $request->id_categorie,

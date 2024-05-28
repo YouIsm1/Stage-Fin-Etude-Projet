@@ -75,8 +75,8 @@
             <div class="dropdown">
                 <button class="dropdown-btn">Gestion des Stocks</button>
                 <div class="dropdown-content">
-                    <a href="#">Ajouter un Stock</a>
-                    <a href="#">Afficher les Stocks</a>
+                    <a href=" {{ route('form_stock') }} ">Ajouter un Stock</a>
+                    <a href=" {{ route('_stock_.index') }} ">Afficher les Stocks</a>
                 </div>
             </div>
             <div class="dropdown">
