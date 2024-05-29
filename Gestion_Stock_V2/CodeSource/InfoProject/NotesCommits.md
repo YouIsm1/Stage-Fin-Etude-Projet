@@ -187,3 +187,13 @@ _
 - fixer le problème de quantité par défaut.
 - Remarque : Erreur dans la partie edit stock sachant que lors de changer le produit reine a changer au niveau de quantité du produit dans le stock.
 _
+
+
+29/05/24 :
+commit-1;
+Ver 2.2.4 : | Changement sur la modélisation du projet |
+_
+- Créer le MLD et MCD.
+- des modifications sur diagramme cas d'utilisation.
+- la suppression des clés étrangères dans la diagramme de classes.
+_
