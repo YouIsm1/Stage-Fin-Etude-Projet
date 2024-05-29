@@ -13,17 +13,19 @@
                     </div>
                     <div class="dparb">
                         <div class="form_div">
-                        <form class="form_item" method="Post" action="{{ route('_user_.update', $Stock_data->id_Utilisateur) }}">
-                                @if(session('message_success'))
-                                    <div class="alert_message alert_message_role alert_succes">
-                                        {{ session('message_success') }}
-                                    </div>
-                                @endif
-                                @if(session('message_error'))
-                                    <div class="alert_message alert_message_role alert_error">
-                                        {{ session('message_error') }}
-                                    </div>
-                                @endif
+                            <form class="form_item" method="Post" action="{{ route('_stock_.update', $Stock_data->id_stock) }}">
+                                <div class="Div_description_role Div_email Div_password">
+                                    @if(session('message_success'))
+                                        <div class="alert_message alert_message_role alert_succes">
+                                            {{ session('message_success') }}
+                                        </div>
+                                    @endif
+                                    @if(session('message_error'))
+                                        <div class="alert_message alert_message_role alert_error">
+                                            {{ session('message_error') }}
+                                        </div>
+                                    @endif
+                                </div>
                                 @csrf
                                 @method('PUT')
                                     <div class="Div_description_role Div_email Div_password">
@@ -82,8 +84,11 @@
                                     </div>
                                     <div class="Div_role_name Div_email">
                                         <label class="input_lable input_lable_s_btn" for="Quantite">Quantité :</label><br>
-                                        <!-- <input class="input_lable Input_item input_lable_s_btn" type="number" name="Quantite" id="quantite" placeholder="Entrer la Quantité du produit" min="1" value="{ { $Stock_data -> Quantite }}" > -->
-                                        <input class="input_lable Input_item input_lable_s_btn" type="number" name="Quantite" id="quantite" placeholder="Entrer la Quantité du produit" min="1" value_data="{{ $Stock_data->Quantite }}" value="{{ $Stock_data->Quantite }}">
+                                        <input class="input_lable Input_item input_lable_s_btn" type="number" name="Quantite" id="quantite" placeholder="Entrer la Quantité du produit" min="1" value="{{ $Stock_data -> Quantite }}" >
+                                        <!-- <input class="input_lable Input_item input_lable_s_btn" type="number" name="Quantite" id="quantite" min="1" value="{ { $Stock_data -> Quantite }}" > -->
+                                        <!-- <input class="input_lable Input_item input_lable_s_btn" type="number" name="Quantite" id="quantite" placeholder="Entrer la Quantité du produit" min="1" value_data="{ { $Stock_data->Quantite }}" value="{ { $Stock_data -> Quantite }}"> -->
+                                        <!-- <input type="number" value= { { $Stock_data->Quantite }} > -->
+                                        <!-- <span>{ { $Stock_data->Quantite }}</span> -->
                                         @if ($errors->has('Quantite'))
                                             <div class="alert_error alert_message alert_message_role">
                                                 {{ $errors->first('Quantite') }}
@@ -145,5 +150,33 @@
         });
     </script> -->
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const produitSelect = document.getElementById('ID_Produit');
+            const quantiteInput = document.getElementById('quantite');
+            const statusSelect = document.getElementById('status');
 
+            produitSelect.addEventListener('change', function() {
+                updateQuantite();
+            });
+
+            statusSelect.addEventListener('change', function() {
+                updateQuantite();
+            });
+
+            function updateQuantite() {
+                const selectedOption = produitSelect.options[produitSelect.selectedIndex];
+                const quantite = selectedOption.getAttribute('data-quantite');
+                const status = statusSelect.value;
+
+                if (status === 'Sortant' && quantite) {
+                    // quantiteInput.max = quantite;
+                    quantiteInput.value = quantite;
+                } else {
+                    // quantiteInput.removeAttribute('max');
+                    quantiteInput.value = quantite;
+                }
+            }
+        });
+    </script>
 @endsection

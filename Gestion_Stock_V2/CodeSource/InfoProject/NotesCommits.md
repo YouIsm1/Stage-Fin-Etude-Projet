@@ -177,3 +177,13 @@ Ver 2.2.2 : | PAS creation de fct edit/update stock  |
 _
 - des erreurs dans partie de quantité de dans edit page stock.
 _
+
+
+28/05/24 :
+commit-1;
+Ver 2.2.3 : | Presque Complet pour table stock |
+_
+- ajouter la fct update dans la page edit stock.
+- fixer le problème de quantité par défaut.
+- Remarque : Erreur dans la partie edit stock sachant que lors de changer le produit reine a changer au niveau de quantité du produit dans le stock.
+_
