@@ -105,7 +105,7 @@ class StockController extends Controller
             ]);
         
             // Retourner une réponse avec un message de succès
-            return redirect()->back()->with('message_success', 'Stock ajouté avec succès.');
+            return redirect()->route('_stock_.index')->with('message_success', 'Stock ajouté avec succès.');
         } catch (\Exception $e) {
             dd($e);
         }
@@ -131,7 +131,7 @@ class StockController extends Controller
      */
     public function edit($id_stock)
     {
-        $Stock_data = Utilisateur::find($id_stock);
+        $Stock_data = Stock::find($id_stock);
 
         if (!$Stock_data) {
             return redirect()->route('_stock_.index')->with('message_error', 'Stock introuvable.');
@@ -142,6 +142,7 @@ class StockController extends Controller
         $administrateurs = Utilisateur::where('id_Role', 1)->get();
         $fournisseurs = Utilisateur::where('id_Role', 10)->get();
         $produits_data = Produit::with('photos')->get();
+        // dd($Stock_data);
         return view('page_edit_stock_2', compact('Stock_data', 'administrateurs', 'fournisseurs', 'produits_data'));
         // return view('page_edit_stock', compact('Stock_data', 'administrateurs', 'fournisseurs', 'produits_data'));
     }
@@ -153,10 +154,89 @@ class StockController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_stock)
     {
-        //
+        // Messages de validation personnalisés
+        $messages = [
+            'ID_Utilisateur_R_Fournisseur.required' => 'Le fournisseur est requis.',
+            'ID_Utilisateur_R_Fournisseur.exists' => 'Le fournisseur sélectionné n\'existe pas.',
+            'ID_Produit.required' => 'Le produit est requis.',
+            'ID_Produit.exists' => 'Le produit sélectionné n\'existe pas.',
+            'Quantite.required' => 'La quantité est requise.',
+            'Quantite.integer' => 'La quantité doit être un nombre entier.',
+            'Quantite.min' => 'La quantité doit être au moins de 1.',
+            'status.required' => 'Le statut est requis.',
+            'status.in' => 'Le statut doit être soit "Entrant" soit "Sortant".',
+        ];
+    
+        // Validation des données de la requête
+        $request->validate([
+            'ID_Utilisateur_R_Fournisseur' => 'required|exists:utilisateurs,id_Utilisateur',
+            'ID_Produit' => 'required|exists:produits,id_produit',
+            'Quantite' => 'required|integer|min:1',
+            'status' => 'required|in:Entrant,Sortant',
+        ], $messages);
+    
+        try {
+            // Récupérer les données validées
+            $data = $request->only([
+                'ID_Utilisateur_R_Fournisseur',
+                'ID_Produit',
+                'Quantite',
+                'status',
+            ]);
+    
+            // Récupérer les données de stock
+            $stock = Stock::findOrFail($id_stock);
+    
+            // Récupérer le produit correspondant
+            $produit = Produit::findOrFail($data['ID_Produit']);
+    
+            // Ajuster la quantité du produit en fonction du type de stock
+            if ($stock->status !== $data['status']) {
+                if ($data['status'] === 'Entrant') {
+                    // $produit->quantite += $data['Quantite'] - $stock->Quantite;
+                    $produit->quantite += $data['Quantite'] + $stock->Quantite;
+                } elseif ($data['status'] === 'Sortant') {
+                    if ($produit->quantite < $data['Quantite']) {
+                        return redirect()->back()->with('message_error', 'Quantité insuffisante pour ce produit, sachant que la quantite totale de ce produit est : ' . $produit->quantite)->withInput();
+                        // $produit->quantite = 0;
+                    }
+                    // $produit->quantite -= $data['Quantite'] - $stock->Quantite;
+                    $produit->quantite -= $data['Quantite'] + $stock->Quantite;
+                }
+            } else {
+                if ($data['status'] === 'Entrant') {
+                    $produit->quantite += $data['Quantite'] - $stock->Quantite;
+                    // $produit->quantite = $data['Quantite'];
+                } elseif ($data['status'] === 'Sortant') {
+                    if ($produit->quantite + $stock->Quantite < $data['Quantite']) {
+                        return redirect()->back()->with('message_error', 'Quantité insuffisante pour ce produit, sachant que la quantite totale de ce produit est : ' . $produit->quantite)->withInput();
+                        // $produit->quantite = 0;
+                    }
+                    $produit->quantite += $stock->Quantite - $data['Quantite'];
+                    // $produit->quantite -= $stock->Quantite - $data['Quantite'];
+                }
+            }
+    
+            // Sauvegarder les modifications du produit
+            $produit->save();
+    
+            // Mettre à jour les données de stock
+            $stock->update([
+                'ID_Utilisateur_R_Fournisseur' => $data['ID_Utilisateur_R_Fournisseur'],
+                'ID_Produit' => $data['ID_Produit'],
+                'Quantite' => $data['Quantite'],
+                'status' => $data['status'],
+            ]);
+    
+            // Retourner une réponse avec un message de succès
+            return redirect()->route('_stock_.index')->with('message_success', 'Stock mis à jour avec succès.');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('message_error', 'Une erreur est survenue lors de la mise à jour du stock. Veuillez réessayer.');
+        }
     }
+    
 
     /**
      * Remove the specified resource from storage.
