@@ -197,3 +197,12 @@ _
 - des modifications sur diagramme cas d'utilisation.
 - la suppression des clés étrangères dans la diagramme de classes.
 _
+
+
+
+30/05/24 :
+commit-1;
+Ver 2.2.5 : | Presque Complet pour Le rapport |
+_
+- Ajouter le chapitre de technologie utilisées.
+_
