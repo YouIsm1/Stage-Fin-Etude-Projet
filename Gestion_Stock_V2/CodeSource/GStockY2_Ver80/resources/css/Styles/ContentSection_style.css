@@ -5,7 +5,19 @@
     margin-left: 235px;
     padding: 15px;
     /* padding-left: 20px; */
-    background-color: antiquewhite;
+    /* background-color: antiquewhite; */
+    background-color: whitesmoke;
     border-radius: 20px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+
+    /* background-image: url('./Backgrounds/1283594_633.svg'); */
+    /* background-image: url('./Backgrounds/20553172_6320287.jpeg'); */
+    /* background-image: url('./Backgrounds/islamic-new-year-pattern-background.jpg'); */
+    /* background-image: url('./Backgrounds/zalig_maroc.avif'); */
+    /* background-image: url('./Backgrounds/60999180.jpg'); */
+    /* background-image: url('./Backgrounds/65712021.jpg'); */
+
+    /* background-repeat: no-repeat; */
+    /* background-attachment: fixed; */
+    /* background-size: cover; */
   }

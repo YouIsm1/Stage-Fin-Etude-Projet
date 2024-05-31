@@ -1,4 +1,10 @@
 
+.titro{
+    font-family: Brush Script MT;
+    /* font-size: 30px; */
+    font-size: 50px;
+}
+
 
 .HeaderComp{
     display: flex;
@@ -7,11 +13,12 @@
     /* margin: 5px; */
     /* margin-top: 0px; */
     height: 60px;
-    background-color: antiquewhite;
+    /* background-color: antiquewhite; */
+    background-color: whitesmoke;
     /* background-color: black;
     color: white; */
     margin-bottom: 15px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
 }
 
 .HeaderComp > h1{

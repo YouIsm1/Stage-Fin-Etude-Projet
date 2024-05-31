@@ -206,3 +206,12 @@ Ver 2.2.5 : | Presque Complet pour Le rapport |
 _
 - Ajouter le chapitre de technologie utilisées.
 _
+
+
+31/05/24 :
+commit-2;
+Ver 2.2.6 : | Des Modifications |
+_
+- Modifier le couleur de antiquewhite a whitesmoke.
+- Changer l’amplement du button ajouter ou enregistrer avec annuler.
+_

@@ -1,6 +1,6 @@
 
 <header class="HeaderComp">
-    <h1 class=""><a href="#">GStockY</a></h1>
+    <h1 class="titro"><a href="{{ route('home') }}">GStockY</a></h1>
     <nav>
         <ul>
             <li class="class_li" ><a href="{{ route('home') }}">Home</a></li>

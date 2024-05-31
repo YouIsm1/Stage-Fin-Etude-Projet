@@ -4,7 +4,7 @@
 @extends('Layouts.master')
 @section('ContentComp')
     <div class="content_section">
-        @if(session()->has('utilisateur') && session('utilisateur.role.id_Role') == 1)
+        @if(session()->has('utilisateur') && (session('utilisateur.role.id_Role') == 1 || session('utilisateur.role.id_Role') == 10))
             @if (isset($Stocks_data) && Count($Stocks_data) >= 1)
                 <div class="index_role page_role_div">
                     <div class="titre">

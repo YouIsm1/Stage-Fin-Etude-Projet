@@ -13,12 +13,14 @@
     flex-direction: column;
     align-items: center;
 
-    background-color: antiquewhite;
+    /* background-color: antiquewhite; */
+    background-color: whitesmoke;
     padding: 10px;
     margin: 10px;
     border-radius: 20px;
     /* width: 700px; */
     width: 500px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   }
 
 .div_title{
@@ -28,6 +30,13 @@
     text-align: center;
     text-transform: capitalize;
     font-size: 26px;
+    /* font-family: 'Times New Roman', Times, serif; */
+    /* font-family:cursive, 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, 'Arial Narrow', Arial, sans-serif; */
+    /* font-family: Brush Script MT; */
+    /* font-family: Californian FB; */
+    /* font-family: monotype corsiva; */
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
   }
 
   .Div_connecter {
@@ -49,6 +58,8 @@
     padding: 10px;
     border-radius: 20px;
     margin: 10px auto;
+    background-color: rgba(255, 255, 255, 0.415);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   }
 
   .Div_email {

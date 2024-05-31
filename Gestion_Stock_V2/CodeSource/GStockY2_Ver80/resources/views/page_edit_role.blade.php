@@ -53,8 +53,8 @@
                                         @ endif -->
                                     </div>
                                     <div class="Div_email Div_btn_s" title="Actions">
-                                        <button class="input_lable btn btn_sbt" type="submit" class="btn_form">Enregistrer</button>
                                         <button class="input_lable btn btn_rst btn_ann" type="reset"  class="btn_form">annuler</button>
+                                        <button class="input_lable btn btn_sbt" type="submit" class="btn_form">Enregistrer</button>
                                     </div>
                             </form>
                         </div>

@@ -2,7 +2,15 @@
 
 <div class="sidenav">
     @if(session()->has('utilisateur'))
-        @if (session('utilisateur.role.id_Role') == 3)
+        @if (session('utilisateur.role.id_Role') == 10)
+            <div class="dropdown">
+                <button class="dropdown-btn">Voir le Stock</button>
+                <div class="dropdown-content">
+                    <!-- <a href=" { { route('form_stock') }} ">Ajouter un Stock</a> -->
+                    <a href=" {{ route('_stock_.index') }} ">Afficher le Stock</a>
+                </div>
+            </div>
+        @elseif (session('utilisateur.role.id_Role') == 3)
             <div class="dropdown">
                 <button class="dropdown-btn">Voir des Commandes</button>
                 <div class="dropdown-content">
