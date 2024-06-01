@@ -9,6 +9,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\StockController;
+use App\Http\Controllers\CommandeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,3 +68,7 @@ Route::resource('_prod_', ProduitController::class);
 // Routes pour gérer le stock
 Route::get('/form_stock', [StockController::class, 'fun_form_stock'])->name('form_stock');
 Route::resource('_stock_', StockController::class);
+
+// Routes pour gérer les commandes
+Route::get('/form_Comm', [CommandeController::class, 'fun_form_Comm'])->name('form_Comm');
+Route::resource('_Comm_', CommandeController::class);

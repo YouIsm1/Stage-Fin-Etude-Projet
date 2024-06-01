@@ -209,9 +209,18 @@ _
 
 
 31/05/24 :
-commit-2;
+commit-1;
 Ver 2.2.6 : | Des Modifications |
 _
 - Modifier le couleur de antiquewhite a whitesmoke.
 - Changer l’amplement du button ajouter ou enregistrer avec annuler.
+_
+
+
+01/06/24 :
+commit-2;
+Ver 2.2.7 : | Table Commande - Rapport |
+_
+- Finalisation du rapport.
+- Creation de table Commande pas complet avec la selection des produits,
 _
