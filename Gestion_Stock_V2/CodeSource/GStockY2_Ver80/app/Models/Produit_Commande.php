@@ -9,7 +9,7 @@ class Produit_Commande extends Model
 {
     use HasFactory;
 
-    protected $table = 'id_produit_commande';
+    protected $table = 'produit__commandes';
 
     protected $primaryKey = 'id_produit_commande';
     public $incrementing = true; // l'incrémentation automatique de la clé primaire
@@ -17,6 +17,7 @@ class Produit_Commande extends Model
 
     protected $fillable = [
         'Quantite',
+        'montant_total',
         'produit_id',
         'commande_id'
     ];

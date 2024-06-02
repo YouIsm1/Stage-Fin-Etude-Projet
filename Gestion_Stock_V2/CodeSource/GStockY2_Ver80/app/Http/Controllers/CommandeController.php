@@ -14,6 +14,7 @@ use App\Models\Produit;
 use App\Models\Photo_Produit;
 use App\Models\Stock;
 use App\Models\Commande;
+use App\Models\Produit_Commande;
 
 
 class CommandeController extends Controller
@@ -155,10 +156,10 @@ class CommandeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id_stock)
+    public function destroy($id_Commande)
     {
         try {
-            $Commande = Commande::find($id_stock);
+            $Commande = Commande::find($id_Commande);
             $Commande->delete();
 
             // // Récupérer le produit correspondant
@@ -179,7 +180,8 @@ class CommandeController extends Controller
             // $produit->save();
 
             // return redirect()->route('_stock_.index')->with('message_success', 'Stock supprimé avec succès.');
-            return redirect()->back()->with('message_success', 'Commande supprimé avec succès.');
+            // return redirect()->back()->with('message_success', 'Commande supprimé avec succès.');
+            return redirect()->route('_Comm_.index')->with('message_success', 'Commande supprimé avec succès.');
         } catch (\Exception $e) {
             dd($e);
             return redirect()->back()->with('message_error', 'Une erreur est survenue lors de la suppression du Commande. Veuillez réessayer.');
@@ -195,4 +197,70 @@ class CommandeController extends Controller
         // return view('page_add_comm', compact('administrateurs', 'fournisseurs', 'produits_data'));
         return view('page_add_comm', compact('clients'));
     }
+
+    public function dtl_fun_comm($id_Commande)
+    {
+        $Commande = Commande::find($id_Commande);
+        $Produit_Commande_Ass_s = Produit_Commande::where('commande_id', $id_Commande)->get();
+        // dd($Commande);
+        $produits_data_vers = Produit::with('photos')->get();
+        $produits_data = Produit::with('photos')->where('quantite', '>', 0)->get();
+    
+        if (!$Commande) {
+            return redirect()->route('_Comm_.index')->with('message_error', 'Commande introuvable.');
+        }elseif(!$produits_data){
+            return redirect()->route('_Comm_.index')->with('message_error', 'Produit introuvable.');
+        }
+    
+        return view('page_dtl_comm', compact('Commande', 'produits_data', 'Produit_Commande_Ass_s', 'produits_data_vers'));
+    }
+
+    public function Comm_Ass_prod_Fun(Request $request, $id_Commande)
+    {
+        // Validation des données du formulaire
+        $validator = Validator::make($request->all(), [
+            'produit_id.*' => 'required|exists:produits,id_produit',
+            'Quantite.*' => 'required|integer|min:1',
+        ], [
+            'produit_id.*.required' => 'Le champ produit est obligatoire.',
+            'produit_id.*.exists' => 'Le produit sélectionné n\'existe pas.',
+            'Quantite.*.required' => 'Le champ quantité est obligatoire.',
+            'Quantite.*.integer' => 'La quantité doit être un nombre entier.',
+            'Quantite.*.min' => 'La quantité doit être au moins 1.',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $produit_ids = $request->input('produit_id');
+        // dd($produit_ids);
+        // dd($request);
+        // dd($request->input());
+        $quantites = $request->input('Quantite');
+        // dd($quantites);
+
+
+        foreach ($produit_ids as $index => $produit_id) {
+            // Calcul du montant total pour chaque produit
+            $produit = Produit::find($produit_id);
+            $quantite = $quantites[$index];
+            $montant_total = $produit->prix * $quantite;
+
+            $produit->quantite -= $quantite;
+            $produit->save();
+
+            // Création de l'association produit-commande
+            Produit_Commande::create([
+                'produit_id' => $produit_id,
+                'commande_id' => $id_Commande,
+                'Quantite' => $quantite,
+                'montant_total' => $montant_total,
+            ]);
+        }
+
+        // Redirection avec un message de succès
+        return redirect()->route('form_dtl_Comm', ['id_Commande' => $id_Commande])->with('message_success', 'Produits associés à la commande avec succès.');
+    }
+    
 }

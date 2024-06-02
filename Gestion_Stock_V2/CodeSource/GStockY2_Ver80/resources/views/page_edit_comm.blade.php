@@ -5,7 +5,7 @@
 @extends('Layouts.master')
 @section('ContentComp')
     <div class="content_section">
-        @if(session()->has('utilisateur') && session('utilisateur.role.id_Role') == 1)
+        @if(session()->has('utilisateur') && (session('utilisateur.role.id_Role') == 1 || session('utilisateur.role.id_Role') == 2))
             @if(isset($Commande_data))
                 <div class="page_role_div">
                     <div class="titre">

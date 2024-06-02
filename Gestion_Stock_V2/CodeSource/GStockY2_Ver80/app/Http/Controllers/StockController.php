@@ -196,25 +196,25 @@ class StockController extends Controller
             if ($stock->status !== $data['status']) {
                 if ($data['status'] === 'Entrant') {
                     // $produit->quantite += $data['Quantite'] - $stock->Quantite;
-                    $produit->quantite += $data['Quantite'] + $stock->Quantite;
+                    $produit->quantite += $data['Quantite'] + $stock->Quantité;
                 } elseif ($data['status'] === 'Sortant') {
                     if ($produit->quantite < $data['Quantite']) {
                         return redirect()->back()->with('message_error', 'Quantité insuffisante pour ce produit, sachant que la quantite totale de ce produit est : ' . $produit->quantite)->withInput();
                         // $produit->quantite = 0;
                     }
                     // $produit->quantite -= $data['Quantite'] - $stock->Quantite;
-                    $produit->quantite -= $data['Quantite'] + $stock->Quantite;
+                    $produit->quantite -= $data['Quantite'] + $stock->Quantité;
                 }
             } else {
                 if ($data['status'] === 'Entrant') {
-                    $produit->quantite += $data['Quantite'] - $stock->Quantite;
+                    $produit->quantite += $data['Quantite'] - $stock->Quantité;
                     // $produit->quantite = $data['Quantite'];
                 } elseif ($data['status'] === 'Sortant') {
-                    if ($produit->quantite + $stock->Quantite < $data['Quantite']) {
+                    if ($produit->quantite + $stock->Quantité < $data['Quantite']) {
                         return redirect()->back()->with('message_error', 'Quantité insuffisante pour ce produit, sachant que la quantite totale de ce produit est : ' . $produit->quantite)->withInput();
                         // $produit->quantite = 0;
                     }
-                    $produit->quantite += $stock->Quantite - $data['Quantite'];
+                    $produit->quantite += $stock->Quantité - $data['Quantite'];
                     // $produit->quantite -= $stock->Quantite - $data['Quantite'];
                 }
             }
@@ -255,12 +255,12 @@ class StockController extends Controller
         
             // Ajuster la quantité du produit en fonction du type de stock
             if ($stock->status === 'Sortant') {
-                $produit->quantite += $stock->Quantite;
+                $produit->quantite += $stock->Quantité;
             } elseif ($stock->status === 'Entrant') {
-                if ($produit->quantite < $stock->Quantite) {
+                if ($produit->quantite < $stock->Quantité) {
                     $produit->quantite = 0;
                 }else{
-                    $produit->quantite -= $stock->Quantite;
+                    $produit->quantite -= $stock->Quantité;
                 }  
             }
         

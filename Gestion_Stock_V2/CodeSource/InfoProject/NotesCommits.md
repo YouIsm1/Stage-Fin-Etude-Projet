@@ -224,3 +224,14 @@ _
 - Finalisation du rapport.
 - Creation de table Commande pas complet avec la selection des produits,
 _
+
+
+
+02/06/24 :
+commit-1;
+Ver 2.2.8 : | Completer La table de commande |
+_
+- Completer la table de commande d'apres l'ajout la possibilité d'associer des produits a une commande dans la page détailles.
+- ajouter le miquanisme lors la suppression ou l'ajout d'un produit associe au meme temps la quantité du produit soit plus/moins.
+- régler le formulaire d'ajouter un produit associée pour être plus dynamique.
+_

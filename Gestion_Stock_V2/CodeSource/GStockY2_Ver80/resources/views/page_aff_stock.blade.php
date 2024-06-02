@@ -45,7 +45,7 @@
                                                 <td> {{ $Stock_data -> produit -> nom }} </td> 
                                                 <td> {{ $Stock_data -> Utilisateur_R_administrateur -> nom }} {{ $Stock_data -> Utilisateur_R_administrateur -> prenom }} </td>
                                                 <td> {{ $Stock_data -> Utilisateur_R_Fournisseur -> nom }} {{ $Stock_data -> Utilisateur_R_Fournisseur -> prenom }} </td>
-                                                <td> {{ $Stock_data -> Quantite }} </td>
+                                                <td> {{ $Stock_data -> Quantité }} </td>
                                                 <td> {{ $Stock_data -> status }} </td>
                                                 <!-- <td> { { $Stock_data -> categorie -> nom }} </td> -->
                                                 <td> {{ $Stock_data -> created_at }} </td>

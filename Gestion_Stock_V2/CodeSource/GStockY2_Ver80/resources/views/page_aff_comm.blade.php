@@ -6,10 +6,10 @@
 @section('ContentComp')
     <div class="content_section">
         @if(session()->has('utilisateur') && (session('utilisateur.role.id_Role') == 1 || session('utilisateur.role.id_Role') == 2))
-            @if (isset($Commandes_data))
+            @if (isset($Commandes_data) && Count($Commandes_data) >= 1)
                 <div class="index_role page_role_div">
                     <div class="titre">
-                        <h1>Voila tous les Commandes</h1>
+                        <h2>Voila tous les Commandes</h2>
                     </div>
                     <div class="dparb dpafrb">
                         <div class="table_div">
@@ -33,7 +33,7 @@
                                         <td> description du Commande </td>
                                         <td> la date d'ajout </td>
                                         <td> la date de mise a jour </td>
-                                        <td colspan="2">Actions</td>
+                                        <td colspan="3">Actions</td>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -60,6 +60,12 @@
                                                             <button class="btn btn_sbt" type="submit">Modifier</button>
                                                     </form>
                                                 </td>
+                                                <td>
+                                                    <form action="{{ route('form_dtl_Comm', $Commande_data -> id_Commande) }}" method="GET">
+                                                        @csrf
+                                                            <button class="btn btn_sbt" type="submit">Détailles</button>
+                                                    </form>
+                                                </td>
                                             </tr>
                                     @endforeach
                                 </tbody>
@@ -70,9 +76,9 @@
                         <button class="btn btn_sbt"><a href=" {{ route('form_Comm') }} "> Ajouter un Commande </a></button>
                     </div>
                 </div>
-                @else
+            @else
                 <div class="page_role_div dparb dpafrb btn_add_role_link">
-                     <p>Il y a aucun Commande.</p>
+                     <p>Il y a aucune Commande.</p>
                      <button class="btn btn_sbt"><a href=" {{ route('form_Comm') }} "> Ajouter un Commande </a></button>
                 </div>
             @endif

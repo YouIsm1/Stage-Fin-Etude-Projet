@@ -10,6 +10,7 @@ use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\CommandeController;
+use App\Http\Controllers\ProduitCommandeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,4 +72,13 @@ Route::resource('_stock_', StockController::class);
 
 // Routes pour gérer les commandes
 Route::get('/form_Comm', [CommandeController::class, 'fun_form_Comm'])->name('form_Comm');
+// Route::get('/form_dtl_Comm/{id_Commande}', [CommandeController::class, 'dtl_fun_comm'])->name('form_dtl_Comm');
+Route::get('/form_dtl_Comm/{id_Commande}', [CommandeController::class, 'dtl_fun_comm'])->name('form_dtl_Comm');
+// Route::get('/Comm_Ass_prod/{id_Commande}', [CommandeController::class, 'Comm_Ass_prod_Fun'])->name('Comm_Ass_prod');
+Route::post('/Comm_Ass_prod/{id_Commande}', [CommandeController::class, 'Comm_Ass_prod_Fun'])->name('Comm_Ass_prod');
+// Route::match(['put', 'patch'], '/form_dtl_Comm/{id_Commande}', [CommandeController::class, 'dtl_fun_comm'])->name('form_dtl_Comm');
 Route::resource('_Comm_', CommandeController::class);
+
+
+// Routes pour gérer les produits commandes
+Route::resource('_Prod_Comm_', ProduitCommandeController::class);
