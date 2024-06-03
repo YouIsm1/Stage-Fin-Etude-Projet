@@ -245,3 +245,12 @@ _
 - Ajouter la creation de facture automatiquement apres l'association du produit ou le supprimer.
 - la fct delete pour supprimer une facture.
 _
+
+
+commit-2;
+Ver 2.3.0 : | Completer Facture |
+_
+- Completer le tableau des factures partie admin/vendeur mais pour client afficher tous les factures.
+- Completer le tableau des Commandes partie admin/vendeur mais pour client afficher toutes commandes.
+- pour facture supprimer/ajouter, update mais j'ai désactiver pour éviter les problèmes.
+_

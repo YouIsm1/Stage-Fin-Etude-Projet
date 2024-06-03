@@ -86,4 +86,5 @@ Route::resource('_Prod_Comm_', ProduitCommandeController::class);
 
 
 // Routes pour gérer les produits commandes
+Route::get('/form_Fact', [FactureController::class, 'fun_form_Fact'])->name('form_Fact');
 Route::resource('_Fact_', FactureController::class);

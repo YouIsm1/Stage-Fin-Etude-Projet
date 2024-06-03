@@ -6,7 +6,7 @@
 @extends('Layouts.master')
 @section('ContentComp')
     <div class="content_section">
-        @if(session()->has('utilisateur') && (session('utilisateur.role.id_Role') == 1 || session('utilisateur.role.id_Role') == 10))
+        @if(session()->has('utilisateur') && (session('utilisateur.role.id_Role') == 1 || session('utilisateur.role.id_Role') == 2))
             @if (isset($Factures_data) && Count($Factures_data) >= 1)
                 <div class="index_role page_role_div">
                     <div class="titre">
@@ -35,7 +35,8 @@
                                         <td> Status </td>
                                         <td> la date d'ajout </td>
                                         <td> la date de mise a jour </td>
-                                        <td colspan="2">Actions</td>
+                                        <!-- <td colspan="2">Actions</td> -->
+                                        <td colspan="1">Actions</td>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -54,12 +55,12 @@
                                                             <button class="btn btn_rst" type="submit">Supprimer</button>
                                                     </form>
                                                 </td>
-                                                <td >
-                                                    <form action="{{ route('_Fact_.edit', $Facture_data->id_facture) }}" method="GET">
-                                                        @csrf
+                                                <!-- <td >
+                                                    <form action="{ { route('_Fact_.edit', $Facture_data->id_facture) }}" method="GET">
+                                                        @ csrf
                                                             <button class="btn btn_sbt" type="submit">Modifier</button>
                                                     </form>
-                                                </td>
+                                                </td> -->
                                             </tr>
                                     @endforeach
                                 </tbody>
@@ -67,13 +68,13 @@
                         </div>
                     </div>
                     <div class="page_role_div dparb dpafrb btn_add_role_link">
-                        <button class="btn btn_sbt"><a href=" {{ route('form_stock') }} "> Ajouter une Facture </a></button>
+                        <button class="btn btn_sbt"><a href=" {{ route('form_Fact') }} "> Ajouter une Facture </a></button>
                     </div>
                 </div>
                 @else
                 <div class="page_role_div dparb dpafrb btn_add_role_link">
                      <p>Il y a aucune Facture.</p>
-                    <button class="btn btn_sbt"><a href=" {{ route('form_stock') }} "> Ajouter une Facture </a></button>
+                    <button class="btn btn_sbt"><a href=" {{ route('form_Fact') }} "> Ajouter une Facture </a></button>
                 </div>
             @endif
         @else
