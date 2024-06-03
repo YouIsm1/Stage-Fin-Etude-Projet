@@ -1,4 +1,4 @@
-- les tables a creer :
+- les tables a créer :
 
 . role                  #
 . utilisateur           #
@@ -16,4 +16,6 @@ ____________________________Notes_To_Do_Project_________________________________
 
 - créer la fct edit update pour la partie gestion produit.
 - Créer la fct voir détailles pour produit.
-- le problème de supprimer une sortante dans la partie de gestion du stock.
+<!-- - le problème de supprimer une sortante dans la partie de gestion du stock. -->
+- ajouter black broder pour les sections importants.
+- pour la gestion du stock arrêter la modification du produit

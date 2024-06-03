@@ -98,7 +98,7 @@
                 <button class="dropdown-btn">Gestion des Factures</button>
                 <div class="dropdown-content">
                     <a href="#">Ajouter une Facture</a>
-                    <a href="#">Afficher les Factures</a>
+                    <a href=" {{ route('_Fact_.index') }} ">Afficher les Factures</a>
                 </div>
             </div>
             <div class="dropdown">

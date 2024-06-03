@@ -11,6 +11,7 @@ use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\CommandeController;
 use App\Http\Controllers\ProduitCommandeController;
+use App\Http\Controllers\FactureController;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,3 +83,7 @@ Route::resource('_Comm_', CommandeController::class);
 
 // Routes pour gérer les produits commandes
 Route::resource('_Prod_Comm_', ProduitCommandeController::class);
+
+
+// Routes pour gérer les produits commandes
+Route::resource('_Fact_', FactureController::class);

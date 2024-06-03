@@ -235,3 +235,13 @@ _
 - ajouter le miquanisme lors la suppression ou l'ajout d'un produit associe au meme temps la quantité du produit soit plus/moins.
 - régler le formulaire d'ajouter un produit associée pour être plus dynamique.
 _
+
+
+
+03/06/24 :
+commit-1;
+Ver 2.2.9 : | Facture Pas Complet |
+_
+- Ajouter la creation de facture automatiquement apres l'association du produit ou le supprimer.
+- la fct delete pour supprimer une facture.
+_
