@@ -1,7 +1,7 @@
 @extends('Layouts.master')
 @section('ContentComp')
     <div class="content_section">
-        @if(session()->has('utilisateur') && (session('utilisateur.role.id_Role') == 1 || session('utilisateur.role.id_Role') == 2))
+        @if(session()->has('utilisateur') && (session('utilisateur.role.id_Role') == 1 || session('utilisateur.role.id_Role') == 2 || session('utilisateur.role.id_Role') == 3))
         <!-- { { $Commande }} -->
             @if (isset($Commande))
                 <div class="index_role page_role_div">
@@ -42,7 +42,12 @@
                                         <td> description de Commande </td>
                                         <td> la date d'ajout </td>
                                         <td> la date de mise a jour </td>
-                                        <td colspan="2">Actions</td>
+                                        <!-- <td colspan="2">Actions</td> -->
+                                        @if (session('utilisateur.role.id_Role') == 1 || session('utilisateur.role.id_Role') == 2)
+                                            <td colspan="2">Actions</td>
+                                        <!-- @ else
+                                            <td colspan="3">Actions</td> -->
+                                        @endif
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -54,19 +59,22 @@
                                                 <td> {{ $Commande -> description }} </td>
                                                 <td> {{ $Commande -> created_at }} </td>
                                                 <td> {{ $Commande -> updated_at }} </td>
-                                                <td >
-                                                    <form action="{{ route('_Comm_.destroy', $Commande -> id_Commande) }}" method="post">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                            <button class="btn btn_rst" type="submit">Supprimer</button>
-                                                    </form>
-                                                </td>
-                                                <td >
-                                                    <form action="{{ route('_Comm_.edit', $Commande -> id_Commande) }}" method="GET">
-                                                        @csrf
-                                                            <button class="btn btn_sbt" type="submit">Modifier</button>
-                                                    </form>
-                                                </td>
+                                                @if (session('utilisateur.role.id_Role') == 1 || session('utilisateur.role.id_Role') == 2)
+                                                    <!-- <td colspan="2">Actions</td> -->
+                                                    <td >
+                                                        <form action="{{ route('_Comm_.destroy', $Commande -> id_Commande) }}" method="post">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                                <button class="btn btn_rst" type="submit">Supprimer</button>
+                                                        </form>
+                                                    </td>
+                                                    <td >
+                                                        <form action="{{ route('_Comm_.edit', $Commande -> id_Commande) }}" method="GET">
+                                                            @csrf
+                                                                <button class="btn btn_sbt" type="submit">Modifier</button>
+                                                        </form>
+                                                    </td>
+                                                @endif
                                             </tr>
                                     <!-- @ endforeach -->
                                 </tbody>
@@ -108,7 +116,12 @@
                                             <td> la date d'ajout </td>
                                             <td> la date de mise a jour </td>
                                             <!-- <td colspan="2">Actions</td> -->
-                                            <td colspan="1">Actions</td>
+                                            <!-- <td colspan="1">Actions</td> -->
+                                            @if (session('utilisateur.role.id_Role') == 1 || session('utilisateur.role.id_Role') == 2)
+                                                <td colspan="1">Actions</td>
+                                            <!-- @ else
+                                                <td colspan="3">Actions</td> -->
+                                            @endif
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -120,19 +133,21 @@
                                                     <td> {{ $Produit_Commande_Ass -> montant_total }} </td>
                                                     <td> {{ $Produit_Commande_Ass -> created_at }} </td>
                                                     <td> {{ $Produit_Commande_Ass -> updated_at }} </td>
-                                                    <td >
-                                                        <form action="{{ route('_Prod_Comm_.destroy', $Produit_Commande_Ass -> id_produit_commande) }}" method="post">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                                <button class="btn btn_rst" type="submit">Supprimer</button>
-                                                        </form>
-                                                    </td>
-                                                    <!-- <td >
-                                                        <form action="{ { route('_Prod_Comm_.edit', $Produit_Commande_Ass -> id_produit_commande) }}" method="GET">
-                                                            @ csrf
-                                                                <button class="btn btn_sbt" type="submit">Modifier</button>
-                                                        </form>
-                                                    </td> -->
+                                                    @if (session('utilisateur.role.id_Role') == 1 || session('utilisateur.role.id_Role') == 2)
+                                                        <td >
+                                                            <form action="{{ route('_Prod_Comm_.destroy', $Produit_Commande_Ass -> id_produit_commande) }}" method="post">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                    <button class="btn btn_rst" type="submit">Supprimer</button>
+                                                            </form>
+                                                        </td>
+                                                        <!-- <td >
+                                                            <form action="{ { route('_Prod_Comm_.edit', $Produit_Commande_Ass -> id_produit_commande) }}" method="GET">
+                                                                @ csrf
+                                                                    <button class="btn btn_sbt" type="submit">Modifier</button>
+                                                            </form>
+                                                        </td> -->
+                                                    @endif
                                                 </tr>
                                         @endforeach
                                     </tbody>
@@ -144,9 +159,11 @@
                             @endif
                         </div>
                         <div class="dparb">
-                            <div class="page_role_div dparb dpafrb btn_add_role_link">
-                                <button class="btn btn_sbt" id="btn_add_prod">Associer un Produit</button>
-                            </div>
+                            @if (session('utilisateur.role.id_Role') == 1 || session('utilisateur.role.id_Role') == 2)
+                                <div class="page_role_div dparb dpafrb btn_add_role_link">
+                                    <button class="btn btn_sbt" id="btn_add_prod">Associer un Produit</button>
+                                </div>
+                            @endif
                             <div style="display: none;" class="form_div" id="form_div_id">
                                 <form class="form_item" action="{{ route('Comm_Ass_prod', $Commande -> id_Commande) }}" method="POST">
                                     <!-- <input name="ID_Utilisateur_R_administrateur" type="number" value="{ { session('utilisateur.id_Utilisateur') }}" hidden> -->
@@ -195,10 +212,12 @@
                     </div>
                 </div>
             @else
-                <div class="page_role_div dparb dpafrb btn_add_role_link">
-                    <p>Il y a aucune Commande.</p>
-                    <button class="btn btn_sbt"><a href="{{ route('form_Comm') }}">Ajouter une Commande</a></button>
-                </div>
+                @if (session('utilisateur.role.id_Role') == 1 || session('utilisateur.role.id_Role') == 2)
+                    <div class="page_role_div dparb dpafrb btn_add_role_link">
+                        <p>Il y a aucune Commande.</p>
+                        <button class="btn btn_sbt"><a href="{{ route('form_Comm') }}">Ajouter une Commande</a></button>
+                    </div> 
+                @endif
             @endif
         @else
             <div class="page_role_div dparb dpafrb btn_add_role_link">

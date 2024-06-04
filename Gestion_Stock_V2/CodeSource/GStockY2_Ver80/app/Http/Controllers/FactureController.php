@@ -194,4 +194,16 @@ class FactureController extends Controller
         $Commandes_data = Commande::all();
         return view('page_add_fact', compact('Commandes_data'));
     }
+
+    public function fun_clit_index($id_client_pg)
+    {
+        // Récupérer les stocks qui correspondent à l'ID de l'utilisateur fournisseur
+        // $Factures_data = Facture::where('ID_Utilisateur_R_Client', $id_client_pg)->get();
+        $Factures_data = Facture::whereHas('commande', function($query) use ($id_client_pg) {
+            $query->where('ID_Utilisateur_R_Client', $id_client_pg);
+        })->get();        
+        
+        // Retourner la vue avec les données des stocks
+        return view('page_aff_fact', compact('Factures_data'));
+    }
 }

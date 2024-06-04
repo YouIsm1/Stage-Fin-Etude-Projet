@@ -282,4 +282,19 @@ class StockController extends Controller
         $produits_data = Produit::with('photos')->get();
         return view('page_add_stock', compact('administrateurs', 'fournisseurs', 'produits_data'));
     }
+
+    // public function fun_forns_index($id_utilisateur_forn)
+    // {
+    //     $Stocks_data = Stock->Utilisateur_R_Fournisseur::where($id_utilisateur_forn)
+    //     return view('page_aff_stock', compact('Stocks_data'));
+    // }
+    public function fun_forns_index($id_utilisateur_forn)
+    {
+        // Récupérer les stocks qui correspondent à l'ID de l'utilisateur fournisseur
+        $Stocks_data = Stock::where('ID_Utilisateur_R_Fournisseur', $id_utilisateur_forn)->get();
+        
+        // Retourner la vue avec les données des stocks
+        return view('page_aff_stock', compact('Stocks_data'));
+    }
+
 }

@@ -254,3 +254,16 @@ _
 - Completer le tableau des Commandes partie admin/vendeur mais pour client afficher toutes commandes.
 - pour facture supprimer/ajouter, update mais j'ai désactiver pour éviter les problèmes.
 _
+
+
+04/06/24 :
+commit-1;
+Ver 2.3.1 : | PRESQUE FIN PROJET |
+_
+- pour partie fournisseur ajouter que chaque fournisseur peut vois ses stock.
+- ajouter la fct d'ajouter un règlement fct store.
+- gérer le max attribue dans la vue correspandament avec le reste du montant de facture.
+- ajouter la suppression pour règlement et gérer le statut de facture.
+- ajouter la fct update et gérer le statu de facture aussi gérer le reste pour le règlement.
+- gérer la partie client pour voir les commandes et les détailles et les factures et les règlements.
+_

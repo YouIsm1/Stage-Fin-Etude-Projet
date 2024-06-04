@@ -35,7 +35,9 @@
                                         <td> Status </td>
                                         <td> la date d'ajout </td>
                                         <td> la date de mise a jour </td>
-                                        <td colspan="2">Actions</td>
+                                        @if (session('utilisateur.role.id_Role') == 1)
+                                            <td colspan="2">Actions</td>
+                                        @endif
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -45,24 +47,26 @@
                                                 <td> {{ $Stock_data -> produit -> nom }} </td> 
                                                 <td> {{ $Stock_data -> Utilisateur_R_administrateur -> nom }} {{ $Stock_data -> Utilisateur_R_administrateur -> prenom }} </td>
                                                 <td> {{ $Stock_data -> Utilisateur_R_Fournisseur -> nom }} {{ $Stock_data -> Utilisateur_R_Fournisseur -> prenom }} </td>
-                                                <td> {{ $Stock_data -> Quantité }} </td>
+                                                <td> {{ $Stock_data -> Quantite }} </td>
                                                 <td> {{ $Stock_data -> status }} </td>
                                                 <!-- <td> { { $Stock_data -> categorie -> nom }} </td> -->
                                                 <td> {{ $Stock_data -> created_at }} </td>
                                                 <td> {{ $Stock_data -> updated_at }} </td>
-                                                <td >
-                                                    <form action="{{ route('_stock_.destroy', $Stock_data->id_stock) }}" method="post">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                            <button class="btn btn_rst" type="submit">Supprimer</button>
-                                                    </form>
-                                                </td>
-                                                <td >
-                                                    <form action="{{ route('_stock_.edit', $Stock_data->id_stock) }}" method="GET">
-                                                        @csrf
-                                                            <button class="btn btn_sbt" type="submit">Modifier</button>
-                                                    </form>
-                                                </td>
+                                                @if (session('utilisateur.role.id_Role') == 1)
+                                                    <td >
+                                                        <form action="{{ route('_stock_.destroy', $Stock_data->id_stock) }}" method="post">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                                <button class="btn btn_rst" type="submit">Supprimer</button>
+                                                        </form>
+                                                    </td>
+                                                    <td >
+                                                        <form action="{{ route('_stock_.edit', $Stock_data->id_stock) }}" method="GET">
+                                                            @csrf
+                                                                <button class="btn btn_sbt" type="submit">Modifier</button>
+                                                        </form>
+                                                    </td>
+                                                @endif
                                             </tr>
                                     @endforeach
                                 </tbody>

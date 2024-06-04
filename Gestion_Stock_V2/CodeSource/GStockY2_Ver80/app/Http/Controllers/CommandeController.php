@@ -50,11 +50,21 @@ class CommandeController extends Controller
     public function store(Request $request)
     {
         // Valider les données du formulaire avec des messages d'indication personnalisés
+        // $validator = Validator::make($request->all(), [
+        //     'ID_Utilisateur_R_Client' => 'required|exists:utilisateurs,id_Utilisateur',
+        // ], [
+        //     'ID_Utilisateur_R_Client.required' => 'Le champ client est obligatoire.',
+        //     'ID_Utilisateur_R_Client.exists' => 'Le client sélectionné n\'existe pas.',
+        // ]);
+
         $validator = Validator::make($request->all(), [
             'ID_Utilisateur_R_Client' => 'required|exists:utilisateurs,id_Utilisateur',
+            'description' => 'required|string|max:255', // ajustement de la règle de validation
         ], [
             'ID_Utilisateur_R_Client.required' => 'Le champ client est obligatoire.',
             'ID_Utilisateur_R_Client.exists' => 'Le client sélectionné n\'existe pas.',
+            'description.required' => 'Le champ description est obligatoire.', // message pour la description obligatoire
+            'description.max' => 'La description ne peut pas dépasser 255 caractères.',
         ]);
 
         if ($validator->fails()) {
@@ -66,7 +76,7 @@ class CommandeController extends Controller
         // $commande->ID_Utilisateur_R_Vendeur_Admin = session('utilisateur.id_Utilisateur');
         $commande->ID_Utilisateur_R_Vendeur_Admin = $request->input('ID_Utilisateur_R_administrateur');
         $commande->ID_Utilisateur_R_Client = $request->input('ID_Utilisateur_R_Client');
-        $commande->description = $request->input('description', ''); // Description non obligatoire
+        $commande->description = $request->input('description', 'Vide'); // Description non obligatoire
         $commande->save();
 
         // Rediriger avec un message de succès
@@ -365,6 +375,19 @@ class CommandeController extends Controller
 
         // Redirection avec un message de succès
         return redirect()->route('form_dtl_Comm', ['id_Commande' => $id_Commande])->with('message_success', 'Produits associés à la commande avec succès.');
+    }
+
+
+    public function fun_clit_index($id_client_pg)
+    {
+        // Récupérer les stocks qui correspondent à l'ID de l'utilisateur fournisseur
+        // $Reglements_data = Reglement::where('ID_Utilisateur_R_Client', $id_client_pg)->get();
+        
+        // Retourner la vue avec les données des stocks
+        // return view('page_aff_regl', compact('Reglements_data'));
+
+        $Commandes_data = Commande::where('ID_Utilisateur_R_Client', $id_client_pg)->get();
+        return view('page_aff_comm', compact('Commandes_data'));
     }
 
     
