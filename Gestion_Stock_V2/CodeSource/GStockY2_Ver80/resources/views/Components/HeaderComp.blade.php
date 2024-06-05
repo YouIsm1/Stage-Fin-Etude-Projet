@@ -4,7 +4,7 @@
     <nav>
         <ul>
             <li class="class_li" ><a href="{{ route('home') }}">Home</a></li>
-            <li class="class_li" ><a href="/">Apropos de ce site</a></li>
+            <!-- <li class="class_li" ><a href="/">Apropos de ce site</a></li> -->
             <li class="class_li" ><a href="/deconnnecter_fun">Se déconnecter</a></li>
 
             <!-- <li><a href="{ { route('_user_.index') }}">show user</a></li> -->

@@ -2,7 +2,7 @@
 @extends('Layouts.master')
 @section('ContentComp')
     <div class="content_section">
-        @if(session()->has('utilisateur') && session('utilisateur.role.id_Role') == 1)
+        @if(session()->has('utilisateur') && (session('utilisateur.role.id_Role') == 1 || session('utilisateur.role.id_Role') == 2))
                 <div class="page_role_div">
                     <div class="titre">
                         <h2>Ajouter un Utilisateur</h2>
@@ -58,25 +58,56 @@
                                             </div>
                                         @endif
                                     </div>
-                                    <div class="Div_description_role Div_email Div_password">
-                                        <label class="input_lable input_lable_s_btn" for="id_Role">Le Role :</label><br>
-                                        <!-- <input class="input_lable Input_item input_lable_s_btn" type="text" name="description" id="role_description" placeholder="Entrer La description du Role" value="{ { old('role_description') }}"> -->
-                                        <select class="input_lable Input_item input_lable_s_btn" name="id_Role" id="">
-                                            @if (isset($roles_data))
-                                                <option value="">Choisir un role</option>
-                                                @foreach($roles_data as $role_data)
-                                                    <option value=" {{ $role_data->id_Role }} "> {{ $role_data->nom_de_role }} </option>
-                                                @endforeach
-                                            @else
-                                                <option value="">--Il y a aucun role--</option>
+                                   
+                                    @if (session('utilisateur.role.id_Role') == 1 )
+                                        <!-- <td colspan="2">Actions</td> -->
+                                        <div class="Div_description_role Div_email Div_password">
+                                            <label class="input_lable input_lable_s_btn" for="id_Role">Le Role :</label><br>
+                                            <!-- <input class="input_lable Input_item input_lable_s_btn" type="text" name="description" id="role_description" placeholder="Entrer La description du Role" value="{ { old('role_description') }}"> -->
+                                            <select class="input_lable Input_item input_lable_s_btn" name="id_Role" id="">
+                                                @if (isset($roles_data))
+                                                    <option value="">Choisir un role</option>
+                                                    @foreach($roles_data as $role_data)
+                                                        <option value=" {{ $role_data->id_Role }} "> {{ $role_data->nom_de_role }} </option>
+                                                    @endforeach
+                                                @else
+                                                    <option value="">--Il y a aucun role--</option>
+                                                @endif
+                                            </select>
+                                            @if ($errors->has('id_Role'))
+                                                <div class="alert_message alert_message_role alert_error">
+                                                    {{ $errors->first('id_Role') }}
+                                                </div>
                                             @endif
-                                        </select>
-                                        @if ($errors->has('id_Role'))
-                                            <div class="alert_message alert_message_role alert_error">
-                                                {{ $errors->first('id_Role') }}
-                                            </div>
-                                        @endif
-                                    </div>
+                                        </div>
+                                    @endif
+                                    @if (session('utilisateur.role.id_Role') == 2)
+                                        <!-- <td colspan="2">Actions</td> -->
+                                        <!-- <div class="page_role_div dparb dpafrb btn_add_role_link">
+                                            <button class="btn btn_sbt"><a href=" { { route('form_Regl') }} "> Ajouter un Reglement </a></button>
+                                        </div> -->
+
+                                        <div class="Div_description_role Div_email Div_password">
+                                            <label class="input_lable input_lable_s_btn" for="id_Role">Le Role :</label><br>
+                                            <!-- <input class="input_lable Input_item input_lable_s_btn" type="text" name="description" id="role_description" placeholder="Entrer La description du Role" value="{ { old('role_description') }}"> -->
+                                            <select class="input_lable Input_item input_lable_s_btn" name="id_Role" id="">
+                                                <!-- @ if (isset($roles_data))
+                                                    <option value="">Choisir un role</option>
+                                                    @ foreach($roles_data as $role_data)
+                                                        <option value=" { { $role_data->id_Role }} "> { { $role_data->nom_de_role }} </option>
+                                                    @ endforeach
+                                                @ else
+                                                    <option value="">--Il y a aucun role--</option>
+                                                @ endif -->
+                                                <option value="3">Client</option>
+                                            </select>
+                                            @if ($errors->has('id_Role'))
+                                                <div class="alert_message alert_message_role alert_error">
+                                                    {{ $errors->first('id_Role') }}
+                                                </div>
+                                            @endif
+                                        </div>
+                                    @endif
                                     <div class="Div_email Div_btn_s" title="Actions">
                                         <button class="input_lable btn btn_rst btn_ann" type="reset"  class="btn_form">annuler</button>
                                         <button class="input_lable btn btn_sbt" type="submit" class="btn_form">Ajouter</button>

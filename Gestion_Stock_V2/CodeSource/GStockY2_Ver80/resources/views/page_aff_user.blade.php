@@ -3,7 +3,7 @@
 @extends('Layouts.master')
 @section('ContentComp')
     <div class="content_section">
-        @if(session()->has('utilisateur') && session('utilisateur.role.id_Role') == 1)
+        @if(session()->has('utilisateur') && (session('utilisateur.role.id_Role') == 1 || session('utilisateur.role.id_Role') == 2))
             @if (isset($users_data))
                 <div class="index_role page_role_div">
                     <div class="titre">
@@ -33,7 +33,11 @@
                                         <td> le role </td>
                                         <td> la date d'ajout </td>
                                         <td> la date de mise a jour </td>
-                                        <td colspan="2">Actions</td>
+                                        @if (session('utilisateur.role.id_Role') == 1)
+                                            <td colspan="2">Actions</td>
+                                        @else
+                                            <td colspan="1">Actions</td>
+                                        @endif
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -54,12 +58,19 @@
                                                             <button class="btn btn_rst" type="submit">Supprimer</button>
                                                     </form>
                                                 </td>
-                                                <td >
-                                                    <form action="{{ route('_user_.edit', $user_data->id_Utilisateur) }}" method="GET">
-                                                        @csrf
-                                                            <button class="btn btn_sbt" type="submit">Modifier</button>
-                                                    </form>
-                                                </td>
+                                              
+                                                @if (session('utilisateur.role.id_Role') == 1)
+                                                    <!-- <td colspan="2">Actions</td> -->
+                                                    <!-- <div class="page_role_div dparb dpafrb btn_add_role_link">
+                                                        <button class="btn btn_sbt"><a href=" { { route('form_Regl') }} "> Ajouter un Reglement </a></button>
+                                                    </div> -->
+                                                    <td >
+                                                        <form action="{{ route('_user_.edit', $user_data->id_Utilisateur) }}" method="GET">
+                                                            @csrf
+                                                                <button class="btn btn_sbt" type="submit">Modifier</button>
+                                                        </form>
+                                                    </td>
+                                                @endif
                                             </tr>
                                     @endforeach
                                 </tbody>

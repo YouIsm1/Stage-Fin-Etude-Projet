@@ -32,6 +32,13 @@
             </div>
         @elseif(session('utilisateur.role.id_Role') == 2)
             <div class="dropdown">
+                <button class="dropdown-btn">Gestion d'utilisateur</button>
+                <div class="dropdown-content">
+                    <a href=" {{ route('form_user') }} ">Ajouter un utilisateur</a>
+                    <a href=" {{ route('_user_.index') }} ">Afficher les utilisateur</a>
+                </div>
+            </div>
+            <div class="dropdown">
                 <button class="dropdown-btn">Gestion des Commandes</button>
                 <div class="dropdown-content">
                     <a href=" {{ route('form_Comm') }} ">Ajouter un Commande</a>
