@@ -59,12 +59,21 @@
                             </form>
                         </div>
                     </div>
+                    <div class="page_role_div dparb dpafrb btn_add_role_link">
+                        <button class="btn btn_sbt"><a href=" {{ route('_role_.index') }} "> Voir les Roles </a></button>
+                    </div>
                 </div>
             @else
-                <p>Il y a aucune donee pour role.</p>
+                <div class="page_role_div dparb dpafrb btn_add_role_link">
+                    <p>Il y a aucune donee pour role.</p>
+                    <button class="btn btn_sbt"><a href=" {{ route('_role_.index') }} "> Voir les Roles </a></button>
+                </div>
             @endif
         @else
-            <p>Vous êtes pas autorisée pour entrer cette page.</p>
+            <div class="page_role_div dparb dpafrb btn_add_role_link">
+                <p>Vous este pas autorisée.</p>
+                <!-- <button class="btn btn_sbt"><a href=" { { route('_role_.index') }} "> Voir les Roles </a></button> -->
+            </div>
         @endif
     </div>
 @endsection

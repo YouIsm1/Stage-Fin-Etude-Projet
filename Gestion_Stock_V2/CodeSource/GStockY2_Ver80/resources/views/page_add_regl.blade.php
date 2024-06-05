@@ -90,7 +90,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const factureSelect = document.getElementById('Facture_ID');
-            const montantInput = document.getElementById('montant_totale');
+            const montantInput = document.getElementById('montant_de_reglement');
 
             if (factureSelect && montantInput) {
                 factureSelect.addEventListener('change', function () {

@@ -63,7 +63,10 @@
                     </div>
                 </div>
         @else
-            <p>Vous este pas autorisée.</p>
+            <div class="page_role_div dparb dpafrb btn_add_role_link">
+                <p>Vous este pas autorisée.</p>
+                <!-- <button class="btn btn_sbt"><a href=" { { route('_role_.index') }} "> Voir les Roles </a></button> -->
+            </div>
         @endif
     </div>
 @endsection
