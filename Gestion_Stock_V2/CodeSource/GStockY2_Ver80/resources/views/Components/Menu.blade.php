@@ -2,45 +2,61 @@
 
 <div class="sidenav">
     @if(session()->has('utilisateur'))
-        @if (session('utilisateur.role.id_Role') == 3)
+        @if (session('utilisateur.role.id_Role') == 10)
+            <div class="dropdown">
+                <button class="dropdown-btn">Voir le Stock</button>
+                <div class="dropdown-content">
+                    <!-- <a href=" { { route('form_stock') }} ">Ajouter un Stock</a> -->
+                    <!-- <a href=" { { route('_stock_.index') }} ">Afficher le Stock</a> -->
+                    <a href="{{ route('aff_indx_stkc_formn', ['id_fournisseur' => session('utilisateur.id_Utilisateur')]) }}">Afficher le Stock</a>
+                </div>
+            </div>
+        @elseif (session('utilisateur.role.id_Role') == 3)
             <div class="dropdown">
                 <button class="dropdown-btn">Voir des Commandes</button>
                 <div class="dropdown-content">
-                    <a href="#">Afficher les Commandes</a>
+                    <a href=" {{ route('aff_indx_Cmd_clit', ['id_client_pg' => session('utilisateur.id_Utilisateur')]) }} ">Afficher les Commandes</a>
                 </div>
             </div>
             <div class="dropdown">
                 <button class="dropdown-btn">Voir des Factures</button>
                 <div class="dropdown-content">
-                    <a href="#">Afficher les Factures</a>
+                    <a href=" {{ route('aff_indx_Fctr_clit', ['id_client_pg' => session('utilisateur.id_Utilisateur')]) }} ">Afficher les Factures</a>
                 </div>
             </div>
             <div class="dropdown">
                 <button class="dropdown-btn">Voir des Règlements</button>
                 <div class="dropdown-content">
-                    <a href="#">Afficher les Règlements</a>
+                    <a href=" {{ route('aff_indx_Regl_clit', ['id_client_pg' => session('utilisateur.id_Utilisateur')]) }} ">Afficher les Règlements</a>
                 </div>
             </div>
         @elseif(session('utilisateur.role.id_Role') == 2)
             <div class="dropdown">
+                <button class="dropdown-btn">Gestion d'utilisateur</button>
+                <div class="dropdown-content">
+                    <a href=" {{ route('form_user') }} ">Ajouter un utilisateur</a>
+                    <a href=" {{ route('_user_.index') }} ">Afficher les utilisateur</a>
+                </div>
+            </div>
+            <div class="dropdown">
                 <button class="dropdown-btn">Gestion des Commandes</button>
                 <div class="dropdown-content">
-                    <a href="#">Ajouter un Commande</a>
-                    <a href="#">Afficher les Commandes</a>
+                    <a href=" {{ route('form_Comm') }} ">Ajouter un Commande</a>
+                    <a href=" {{ route('_Comm_.index') }} ">Afficher les Commandes</a>
                 </div>
             </div>
             <div class="dropdown">
                 <button class="dropdown-btn">Gestion des Factures</button>
                 <div class="dropdown-content">
-                    <a href="#">Ajouter une Facture</a>
-                    <a href="#">Afficher les Factures</a>
+                    <a href=" {{ route('form_Fact') }} ">Ajouter une Facture</a>
+                    <a href=" {{ route('_Fact_.index') }} ">Afficher les Factures</a>
                 </div>
             </div>
             <div class="dropdown">
                 <button class="dropdown-btn">Gestion des Règlements</button>
                 <div class="dropdown-content">
-                    <a href="#">Ajouter un Règlement</a>
-                    <a href="#">Afficher les Règlements</a>
+                    <a href=" {{ route('form_Regl') }} ">Ajouter un Règlement</a>
+                    <a href=" {{ route('_Regl_.index') }} ">Afficher les Règlements</a>
                 </div>
             </div>
         @elseif(session('utilisateur.role.id_Role') == 1)
@@ -82,22 +98,22 @@
             <div class="dropdown">
                 <button class="dropdown-btn">Gestion des Commandes</button>
                 <div class="dropdown-content">
-                    <a href="#">Ajouter un Commande</a>
-                    <a href="#">Afficher les Commandes</a>
+                    <a href=" {{ route('form_Comm') }} ">Ajouter un Commande</a>
+                    <a href=" {{ route('_Comm_.index') }} ">Afficher les Commandes</a>
                 </div>
             </div>
             <div class="dropdown">
                 <button class="dropdown-btn">Gestion des Factures</button>
                 <div class="dropdown-content">
-                    <a href="#">Ajouter une Facture</a>
-                    <a href="#">Afficher les Factures</a>
+                    <a href=" {{ route('form_Fact') }} ">Ajouter une Facture</a>
+                    <a href=" {{ route('_Fact_.index') }} ">Afficher les Factures</a>
                 </div>
             </div>
             <div class="dropdown">
                 <button class="dropdown-btn">Gestion des Règlements</button>
                 <div class="dropdown-content">
-                    <a href="#">Ajouter un Règlement</a>
-                    <a href="#">Afficher les Règlements</a>
+                    <a href=" {{ route('form_Regl') }} ">Ajouter un Règlement</a>
+                    <a href=" {{ route('_Regl_.index') }} ">Afficher les Règlements</a>
                 </div>
             </div>
         @endif

@@ -53,18 +53,29 @@
                                         @ endif -->
                                     </div>
                                     <div class="Div_email Div_btn_s" title="Actions">
-                                        <button class="input_lable btn btn_sbt" type="submit" class="btn_form">Enregistrer</button>
+
                                         <button class="input_lable btn btn_rst btn_ann" type="reset"  class="btn_form">annuler</button>
+                                        <button class="input_lable btn btn_sbt" type="submit" class="btn_form">Enregistrer</button>
                                     </div>
                             </form>
                         </div>
                     </div>
+
+                    <div class="page_role_div dparb dpafrb btn_add_role_link">
+                        <button class="btn btn_sbt"><a href=" {{ route('_role_.index') }} "> Voir les Roles </a></button>
+                    </div>
                 </div>
             @else
-                <p>Il y a aucune donee pour role.</p>
+                <div class="page_role_div dparb dpafrb btn_add_role_link">
+                    <p>Il y a aucune donee pour role.</p>
+                    <button class="btn btn_sbt"><a href=" {{ route('_role_.index') }} "> Voir les Roles </a></button>
+                </div>
             @endif
         @else
-            <p>Vous êtes pas autorisée pour entrer cette page.</p>
+            <div class="page_role_div dparb dpafrb btn_add_role_link">
+                <p>Vous este pas autorisée.</p>
+                <!-- <button class="btn btn_sbt"><a href=" { { route('_role_.index') }} "> Voir les Roles </a></button> -->
+            </div>
         @endif
     </div>
 @endsection

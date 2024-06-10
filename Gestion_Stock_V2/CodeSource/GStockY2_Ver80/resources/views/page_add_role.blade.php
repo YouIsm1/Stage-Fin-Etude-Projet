@@ -52,8 +52,9 @@
                                         @ endif -->
                                     </div>
                                     <div class="Div_email Div_btn_s" title="Actions">
-                                        <button class="input_lable btn btn_sbt" type="submit" class="btn_form">Ajouter</button>
+
                                         <button class="input_lable btn btn_rst btn_ann" type="reset"  class="btn_form">annuler</button>
+                                        <button class="input_lable btn btn_sbt" type="submit" class="btn_form">Ajouter</button>
                                     </div>
                             </form>
                         </div>
@@ -63,7 +64,11 @@
                     </div>
                 </div>
         @else
-            <p>Vous este pas autorisée.</p>
+
+            <div class="page_role_div dparb dpafrb btn_add_role_link">
+                <p>Vous este pas autorisée.</p>
+                <!-- <button class="btn btn_sbt"><a href=" { { route('_role_.index') }} "> Voir les Roles </a></button> -->
+            </div>
         @endif
     </div>
 @endsection

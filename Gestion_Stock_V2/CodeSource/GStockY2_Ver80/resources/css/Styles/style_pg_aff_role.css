@@ -74,7 +74,11 @@
 
 .table_div {
     width: 90%;
+<<<<<<< HEAD
     margin: auto;
+=======
+    margin: 0px auto 30px;
+>>>>>>> main_test
     overflow-x: auto;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
@@ -131,6 +135,10 @@
     border-radius: 20px;
     border: none;
     background-color: white;
+<<<<<<< HEAD
+=======
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+>>>>>>> main_test
 }
 
 .btn_sbt:hover {

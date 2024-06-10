@@ -19,8 +19,8 @@ class Reglement extends Model
         'date_reglement',
         'Facture_ID',
         'ID_Utilisateur_R_Client',
-        'ID_Utilisateur_R_Vendeur_Admin'
-
+        'ID_Utilisateur_R_Vendeur_Admin',
+        'ResteDeMontantFacture'
     ];
 
 
@@ -36,5 +36,29 @@ class Reglement extends Model
     {
         return $this->belongsTo(Utilisateur::class, 'ID_Utilisateur_R_Vendeur_Admin');
     }
+
+
+    // protected static function boot()
+    // {
+    //     parent::boot();
+
+    //     static::creating(function ($model) {
+    //         if (is_null($model->date_reglement)) {
+    //             $model->date_reglement = now();
+    //         }
+    //     });
+    // }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            if (is_null($model->date_reglement)) {
+                $model->date_reglement = now();
+            }
+        });
+    }
+
 
 }

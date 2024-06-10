@@ -34,7 +34,9 @@
                                         <td> Catégorie </td>
                                         <td> la date d'ajout </td>
                                         <td> la date de mise a jour </td>
-                                        <td colspan="3">Actions</td>
+
+                                        <!-- <td colspan="3">Actions</td> -->
+                                        <td colspan="1">Actions</td>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -56,18 +58,20 @@
                                                             <button class="btn btn_rst" type="submit">Supprimer</button>
                                                     </form>
                                                 </td>
-                                                <td >
-                                                    <form action="{{ route('_prod_.edit', $produit_data->id_produit) }}" method="GET">
-                                                        @csrf
+
+                                                <!-- <td >
+                                                    <form action="{ { route('_prod_.edit', $produit_data->id_produit) }}" method="GET">
+                                                        @ csrf
                                                             <button class="btn btn_sbt" type="submit">Modifier</button>
                                                     </form>
                                                 </td>
                                                 <td >
-                                                    <form action="{{ route('_prod_Detailles', $produit_data->id_produit) }}" method="GET">
-                                                        @csrf
+
+                                                    <form action="{ { route('_prod_Detailles', $produit_data->id_produit) }}" method="GET">
+                                                        @ csrf
                                                             <button class="btn btn_sbt" type="submit">Détailles</button>
                                                     </form>
-                                                </td>
+                                                </td> -->
                                             </tr>
                                             <!-- <tr>
                                                 <td colspan="12">

@@ -2,6 +2,8 @@
 
 @extends('Layouts.master')
 @section('ContentComp')
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <div class="content_section">
         <!-- <h1>test</h1>
         @ if(session()->has('utilisateur'))
@@ -11,18 +13,22 @@
         @ endif -->
         @if(session()->has('utilisateur'))
                 <div class="page_role_div">
-                    <div class="titre">
-                        <!-- <h2>Ajouter un Utilisateur</h2> -->
-                        <h4 style="text-align: justify;">
-                            Bonjour Mr, Mdm {{ session('utilisateur.nom') }} {{ session('utilisateur.prenom') }},
-                            Vous etes un ou une {{ session('utilisateur.role.nom_de_role') }}.
 
-                        </h4>
+                    <div class="titre form_div">
+                        <!-- <h2>Ajouter un Utilisateur</h2> -->
+                        <!-- <h4 style="text-align: justify;"> -->
+                        <h3>
+                            Bonjour {{ session('utilisateur.nom') }} {{ session('utilisateur.prenom') }},
+                            Vous êtes un {{ session('utilisateur.role.nom_de_role') }}.
+
+                        </h3>
                     </div>
                     <div class="dparb">
-                        <h4>Vous pouvez modifier votre informations d'apres cette formulaire:</h4>
+                        <div class="titre form_div">
+                            <h6>Vous pouvez modifier Vos informations depuis ce formulaire:</h6>
+                        </div>
                         <div class="form_div">
-                        <form class="form_item" method="Post" action="{{ route('home_update', session('utilisateur.id_Utilisateur')) }}">
+                            <form class="form_item" method="Post" action="{{ route('home_update', session('utilisateur.id_Utilisateur')) }}">
                                 @if(session('message_success'))
                                     <div class="alert_message alert_message_role alert_succes">
                                         {{ session('message_success') }}
@@ -37,8 +43,9 @@
                                 @csrf
                                 @method('PUT')
                                     <div class="Div_role_name Div_email">
-                                        <label class="input_lable input_lable_s_btn" for="prenom">Prénom du utilisateur :</label><br>
-                                        <input min="4" class="input_lable Input_item input_lable_s_btn" type="text" name="prenom" id="prenom" placeholder="Entrer le prénom du utilisateur" value="{{ session('utilisateur.prenom') }}">
+
+                                        <label class="input_lable input_lable_s_btn" for="prenom">Prénom du l'utilisateur :</label><br>
+                                        <input min="4" class="input_lable Input_item input_lable_s_btn" type="text" name="prenom" id="prenom" placeholder="Entrer le prénom du l'utilisateur" value="{{ session('utilisateur.prenom') }}">
                                         @if ($errors->has('prenom'))
                                             <div class="alert_error alert_message alert_message_role">
                                                 {{ $errors->first('prenom') }}
@@ -46,8 +53,9 @@
                                         @endif
                                     </div>
                                     <div class="Div_role_name Div_email">
-                                        <label class="input_lable input_lable_s_btn" for="nom">Nom du utilisateur :</label><br>
-                                        <input min="4" class="input_lable Input_item input_lable_s_btn" type="text" name="nom" id="nom" placeholder="Entrer le nom du utilisateur" value="{{ session('utilisateur.nom') }}">
+
+                                        <label class="input_lable input_lable_s_btn" for="nom">Nom du l'utilisateur :</label><br>
+                                        <input min="4" class="input_lable Input_item input_lable_s_btn" type="text" name="nom" id="nom" placeholder="Entrer le nom du l'utilisateur" value="{{ session('utilisateur.nom') }}">
                                         @if ($errors->has('nom'))
                                             <div class="alert_error alert_message alert_message_role">
                                                 {{ $errors->first('nom') }}
@@ -55,8 +63,9 @@
                                         @endif
                                     </div>
                                     <div class="Div_role_name Div_email">
-                                        <label class="input_lable input_lable_s_btn" for="email">Email du utilisateur :</label><br>
-                                        <input class="input_lable Input_item input_lable_s_btn" type="email" name="email" id="email" placeholder="Entrer l'email du utilisateur" value="{{ session('utilisateur.email') }}">
+
+                                        <label class="input_lable input_lable_s_btn" for="email">Email du l'utilisateur :</label><br>
+                                        <input class="input_lable Input_item input_lable_s_btn" type="email" name="email" id="email" placeholder="Entrer l'email du l'utilisateur" value="{{ session('utilisateur.email') }}">
                                         @if ($errors->has('email'))
                                             <div class="alert_error alert_message alert_message_role">
                                                 {{ $errors->first('email') }}
@@ -84,8 +93,8 @@
                                         @endif
                                     </div>
                                     <div class="Div_email Div_btn_s" title="Actions">
-                                        <button class="input_lable btn btn_sbt" type="submit" class="btn_form">Enregistrer</button>
                                         <button class="input_lable btn btn_rst btn_ann" type="reset"  class="btn_form">annuler</button>
+                                        <button class="input_lable btn btn_sbt" type="submit" class="btn_form">Enregistrer</button>
                                     </div>
                             </form>
                         </div>

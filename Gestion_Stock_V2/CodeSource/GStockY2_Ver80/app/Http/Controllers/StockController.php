@@ -58,7 +58,7 @@ class StockController extends Controller
             'status.required' => 'Le statut est requis.',
             'status.in' => 'Le statut doit être soit "Entrant" soit "Sortant".',
         ];
-    
+
         // Validation des données de la requête
         $request->validate([
             'ID_Utilisateur_R_administrateur' => 'required|exists:utilisateurs,id_Utilisateur',
@@ -69,7 +69,7 @@ class StockController extends Controller
         ], $messages);
 
         try{
-        
+
             // Récupérer les données validées
             $data = $request->only([
                 'ID_Utilisateur_R_administrateur',
@@ -78,10 +78,10 @@ class StockController extends Controller
                 'Quantite',
                 'status',
             ]);
-        
+
             // Récupérer le produit correspondant
             $produit = Produit::findOrFail($data['ID_Produit']);
-        
+
             // Ajuster la quantité du produit en fonction du type de stock
             if ($data['status'] === 'Entrant') {
                 $produit->quantite += $data['Quantite'];
@@ -91,10 +91,10 @@ class StockController extends Controller
                 }
                 $produit->quantite -= $data['Quantite'];
             }
-        
+
             // Sauvegarder les modifications du produit
             $produit->save();
-        
+
             // Créer une nouvelle entrée de stock
             Stock::create([
                 'ID_Utilisateur_R_administrateur' => $data['ID_Utilisateur_R_administrateur'],
@@ -103,14 +103,14 @@ class StockController extends Controller
                 'Quantite' => $data['Quantite'],
                 'status' => $data['status'],
             ]);
-        
+
             // Retourner une réponse avec un message de succès
             return redirect()->route('_stock_.index')->with('message_success', 'Stock ajouté avec succès.');
         } catch (\Exception $e) {
             dd($e);
         }
     }
-    
+
 
     /**
      * Display the specified resource.
@@ -168,7 +168,7 @@ class StockController extends Controller
             'status.required' => 'Le statut est requis.',
             'status.in' => 'Le statut doit être soit "Entrant" soit "Sortant".',
         ];
-    
+
         // Validation des données de la requête
         $request->validate([
             'ID_Utilisateur_R_Fournisseur' => 'required|exists:utilisateurs,id_Utilisateur',
@@ -176,7 +176,7 @@ class StockController extends Controller
             'Quantite' => 'required|integer|min:1',
             'status' => 'required|in:Entrant,Sortant',
         ], $messages);
-    
+
         try {
             // Récupérer les données validées
             $data = $request->only([
@@ -185,43 +185,45 @@ class StockController extends Controller
                 'Quantite',
                 'status',
             ]);
-    
+
             // Récupérer les données de stock
             $stock = Stock::findOrFail($id_stock);
-    
+
             // Récupérer le produit correspondant
             $produit = Produit::findOrFail($data['ID_Produit']);
-    
+
             // Ajuster la quantité du produit en fonction du type de stock
             if ($stock->status !== $data['status']) {
                 if ($data['status'] === 'Entrant') {
                     // $produit->quantite += $data['Quantite'] - $stock->Quantite;
-                    $produit->quantite += $data['Quantite'] + $stock->Quantite;
+
+                    $produit->quantite += $data['Quantite'] + $stock->Quantité;
                 } elseif ($data['status'] === 'Sortant') {
                     if ($produit->quantite < $data['Quantite']) {
                         return redirect()->back()->with('message_error', 'Quantité insuffisante pour ce produit, sachant que la quantite totale de ce produit est : ' . $produit->quantite)->withInput();
                         // $produit->quantite = 0;
                     }
                     // $produit->quantite -= $data['Quantite'] - $stock->Quantite;
-                    $produit->quantite -= $data['Quantite'] + $stock->Quantite;
+
+                    $produit->quantite -= $data['Quantite'] + $stock->Quantité;
                 }
             } else {
                 if ($data['status'] === 'Entrant') {
-                    $produit->quantite += $data['Quantite'] - $stock->Quantite;
+                    $produit->quantite += $data['Quantite'] - $stock->Quantité;
                     // $produit->quantite = $data['Quantite'];
                 } elseif ($data['status'] === 'Sortant') {
-                    if ($produit->quantite + $stock->Quantite < $data['Quantite']) {
+                    if ($produit->quantite + $stock->Quantité < $data['Quantite']) {
                         return redirect()->back()->with('message_error', 'Quantité insuffisante pour ce produit, sachant que la quantite totale de ce produit est : ' . $produit->quantite)->withInput();
                         // $produit->quantite = 0;
                     }
-                    $produit->quantite += $stock->Quantite - $data['Quantite'];
+                    $produit->quantite += $stock->Quantité - $data['Quantite'];
                     // $produit->quantite -= $stock->Quantite - $data['Quantite'];
                 }
             }
-    
+
             // Sauvegarder les modifications du produit
             $produit->save();
-    
+
             // Mettre à jour les données de stock
             $stock->update([
                 'ID_Utilisateur_R_Fournisseur' => $data['ID_Utilisateur_R_Fournisseur'],
@@ -229,14 +231,14 @@ class StockController extends Controller
                 'Quantite' => $data['Quantite'],
                 'status' => $data['status'],
             ]);
-    
+
             // Retourner une réponse avec un message de succès
             return redirect()->route('_stock_.index')->with('message_success', 'Stock mis à jour avec succès.');
         } catch (\Exception $e) {
             return redirect()->back()->with('message_error', 'Une erreur est survenue lors de la mise à jour du stock. Veuillez réessayer.');
         }
     }
-    
+
 
     /**
      * Remove the specified resource from storage.
@@ -252,18 +254,18 @@ class StockController extends Controller
 
             // Récupérer le produit correspondant
             $produit = Produit::findOrFail($stock->ID_Produit);
-        
+
             // Ajuster la quantité du produit en fonction du type de stock
             if ($stock->status === 'Sortant') {
-                $produit->quantite += $stock->Quantite;
+                $produit->quantite += $stock->Quantité;
             } elseif ($stock->status === 'Entrant') {
-                if ($produit->quantite < $stock->Quantite) {
+                if ($produit->quantite < $stock->Quantité) {
                     $produit->quantite = 0;
                 }else{
-                    $produit->quantite -= $stock->Quantite;
-                }  
+                    $produit->quantite -= $stock->Quantité;
+                }
             }
-        
+
             // Sauvegarder les modifications du produit
             $produit->save();
 
@@ -282,4 +284,20 @@ class StockController extends Controller
         $produits_data = Produit::with('photos')->get();
         return view('page_add_stock', compact('administrateurs', 'fournisseurs', 'produits_data'));
     }
+
+
+    // public function fun_forns_index($id_utilisateur_forn)
+    // {
+    //     $Stocks_data = Stock->Utilisateur_R_Fournisseur::where($id_utilisateur_forn)
+    //     return view('page_aff_stock', compact('Stocks_data'));
+    // }
+    public function fun_forns_index($id_utilisateur_forn)
+    {
+        // Récupérer les stocks qui correspondent à l'ID de l'utilisateur fournisseur
+        $Stocks_data = Stock::where('ID_Utilisateur_R_Fournisseur', $id_utilisateur_forn)->get();
+
+        // Retourner la vue avec les données des stocks
+        return view('page_aff_stock', compact('Stocks_data'));
+    }
+
 }

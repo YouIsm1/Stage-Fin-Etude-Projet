@@ -10,6 +10,11 @@ use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\StockController;
 
+use App\Http\Controllers\CommandeController;
+use App\Http\Controllers\ProduitCommandeController;
+use App\Http\Controllers\FactureController;
+use App\Http\Controllers\ReglementController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -66,4 +71,35 @@ Route::resource('_prod_', ProduitController::class);
 
 // Routes pour gérer le stock
 Route::get('/form_stock', [StockController::class, 'fun_form_stock'])->name('form_stock');
+
+// Route::get('/aff_indx_stkc_formn/{id_fournisseur}', [StockController::class, 'fun_forns_index'])->name('aff_indx_stkc_formn');
+Route::get('/aff_indx_stkc_formn/{id_fournisseur}', [StockController::class, 'fun_forns_index'])->name('aff_indx_stkc_formn');
 Route::resource('_stock_', StockController::class);
+
+// Routes pour gérer les commandes
+Route::get('/form_Comm', [CommandeController::class, 'fun_form_Comm'])->name('form_Comm');
+// Route::get('/form_dtl_Comm/{id_Commande}', [CommandeController::class, 'dtl_fun_comm'])->name('form_dtl_Comm');
+Route::get('/form_dtl_Comm/{id_Commande}', [CommandeController::class, 'dtl_fun_comm'])->name('form_dtl_Comm');
+// Route::get('/Comm_Ass_prod/{id_Commande}', [CommandeController::class, 'Comm_Ass_prod_Fun'])->name('Comm_Ass_prod');
+Route::post('/Comm_Ass_prod/{id_Commande}', [CommandeController::class, 'Comm_Ass_prod_Fun'])->name('Comm_Ass_prod');
+// Route::match(['put', 'patch'], '/form_dtl_Comm/{id_Commande}', [CommandeController::class, 'dtl_fun_comm'])->name('form_dtl_Comm');
+Route::resource('_Comm_', CommandeController::class);
+Route::get('/aff_indx_Cmd_clit/{id_client_pg}', [CommandeController::class, 'fun_clit_index'])->name('aff_indx_Cmd_clit');
+
+
+
+// Routes pour gérer les produits commandes
+Route::resource('_Prod_Comm_', ProduitCommandeController::class);
+Route::get('/aff_indx_stkc_formn/{id_fournisseur}', [StockController::class, 'fun_forns_index'])->name('aff_indx_stkc_formn');
+
+
+// Routes pour gérer les factures
+Route::get('/form_Fact', [FactureController::class, 'fun_form_Fact'])->name('form_Fact');
+Route::resource('_Fact_', FactureController::class);
+Route::get('/aff_indx_Fctr_clit/{id_client_pg}', [FactureController::class, 'fun_clit_index'])->name('aff_indx_Fctr_clit');
+
+
+// Routes pour gérer les produits Reglement
+Route::get('/form_Regl', [ReglementController::class, 'fun_form_Regl'])->name('form_Regl');
+Route::resource('_Regl_', ReglementController::class);
+Route::get('/aff_indx_Regl_clit/{id_client_pg}', [ReglementController::class, 'fun_clit_index'])->name('aff_indx_Regl_clit');

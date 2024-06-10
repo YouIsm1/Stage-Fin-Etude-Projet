@@ -186,4 +186,85 @@ _
 - ajouter la fct update dans la page edit stock.
 - fixer le problème de quantité par défaut.
 - Remarque : Erreur dans la partie edit stock sachant que lors de changer le produit reine a changer au niveau de quantité du produit dans le stock.
+
+_
+
+
+29/05/24 :
+commit-1;
+Ver 2.2.4 : | Changement sur la modélisation du projet |
+_
+- Créer le MLD et MCD.
+- des modifications sur diagramme cas d'utilisation.
+- la suppression des clés étrangères dans la diagramme de classes.
+_
+
+
+
+30/05/24 :
+commit-1;
+Ver 2.2.5 : | Presque Complet pour Le rapport |
+_
+- Ajouter le chapitre de technologie utilisées.
+_
+
+
+31/05/24 :
+commit-1;
+Ver 2.2.6 : | Des Modifications |
+_
+- Modifier le couleur de antiquewhite a whitesmoke.
+- Changer l’amplement du button ajouter ou enregistrer avec annuler.
+_
+
+
+01/06/24 :
+commit-2;
+Ver 2.2.7 : | Table Commande - Rapport |
+_
+- Finalisation du rapport.
+- Creation de table Commande pas complet avec la selection des produits,
+_
+
+
+
+02/06/24 :
+commit-1;
+Ver 2.2.8 : | Completer La table de commande |
+_
+- Completer la table de commande d'apres l'ajout la possibilité d'associer des produits a une commande dans la page détailles.
+- ajouter le miquanisme lors la suppression ou l'ajout d'un produit associe au meme temps la quantité du produit soit plus/moins.
+- régler le formulaire d'ajouter un produit associée pour être plus dynamique.
+_
+
+
+
+03/06/24 :
+commit-1;
+Ver 2.2.9 : | Facture Pas Complet |
+_
+- Ajouter la creation de facture automatiquement apres l'association du produit ou le supprimer.
+- la fct delete pour supprimer une facture.
+_
+
+
+commit-2;
+Ver 2.3.0 : | Completer Facture |
+_
+- Completer le tableau des factures partie admin/vendeur mais pour client afficher tous les factures.
+- Completer le tableau des Commandes partie admin/vendeur mais pour client afficher toutes commandes.
+- pour facture supprimer/ajouter, update mais j'ai désactiver pour éviter les problèmes.
+_
+
+
+04/06/24 :
+commit-1;
+Ver 2.3.1 : | PRESQUE FIN PROJET |
+_
+- pour partie fournisseur ajouter que chaque fournisseur peut vois ses stock.
+- ajouter la fct d'ajouter un règlement fct store.
+- gérer le max attribue dans la vue correspandament avec le reste du montant de facture.
+- ajouter la suppression pour règlement et gérer le statut de facture.
+- ajouter la fct update et gérer le statu de facture aussi gérer le reste pour le règlement.
+- gérer la partie client pour voir les commandes et les détailles et les factures et les règlements.
 _
